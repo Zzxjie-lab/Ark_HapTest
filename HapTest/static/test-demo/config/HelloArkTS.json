@@ -1,0 +1,14 @@
+{
+    "targetProjectName": "HelloArkTS",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/HelloArkTS",
+    "sdks": [
+        {
+            "name": "etsSdk",
+            "path": "E:/OpenHarmony/SDK6/20/ets",
+            "moduleName": ""
+        }
+    ],
+    "options": {
+        "enableLeadingComments": true
+    }
+}

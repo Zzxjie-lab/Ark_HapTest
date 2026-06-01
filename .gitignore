@@ -1,0 +1,40 @@
+# Claude Code config and instructions
+.claude/
+CLAUDE.md
+
+# Project download instructions
+Projects/下载要求
+
+# Node.js dependencies
+node_modules/
+
+# Development environment (not source code)
+DevEco6/
+SDK6/
+Emulator6/
+
+# Build outputs
+lib/
+**/out/
+out_static/
+*.hap
+*.hsp
+
+# Keep ArkAnalyzer analysis results (data, not build output)
+!ArkAnalyzer/output/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+haptest.log
+
+# Temp
+temp/
+*.tmp

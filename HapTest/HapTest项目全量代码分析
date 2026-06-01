@@ -1,0 +1,579 @@
+HapTest 项目结构分析报告
+     
+  1. CLI 入口文件
+     
+  入口点: bin/haptest (shebang: #!/usr/bin/env node)
+
+  bin/haptest
+    └── 加载 lib/cli/cli.js  (编译自 src/cli/cli.ts)
+
+  ┌────────────────────────┬───────────────────────┐
+  │          文件          │         作用          │
+  ├────────────────────────┼───────────────────────┤
+  │                        │ Node.js CLI           │
+  │ bin/haptest            │ 入口，通过            │
+  │                        │ package.json 的 "bin" │
+  │                        │  字段注册             │
+  ├────────────────────────┼───────────────────────┤
+  │ src/cli/cli.ts         │ 命令行参数解析，使用  │
+  │                        │ commander 库          │
+  ├────────────────────────┼───────────────────────┤
+  │ src/cli/env_checker.ts │ 运行环境检查          │
+  └────────────────────────┴───────────────────────┘
+
+  CLI 支持两个命令:
+  - 默认命令 (fuzz): 测试运行器，参数包括 -i(HAP),
+  --policy(策略名), --staticConfig(静态配置文件) 等
+  - ui-viewer: UI查看器服务，参数包括 -t(设备),
+  -p(端口)
+
+  --policy 参数默认值为 manu, 通过 --staticConfig
+  <file> 传入静态分析的配置文件路径。
+
+  ---
+  2. Policy 实现位置
+
+  架构层次
+
+  src/policy/
+  ├── policy.ts                    ← 抽象基类 Policy +
+  PolicyName 枚举 + PolicyFlag 枚举
+  ├── policy_builder.ts            ← PolicyBuilder
+  工厂类 (根据 PolicyName 创建对应实例)
+  ├── ptg_policy.ts                ← PTGPolicy 抽象类
+  (基于页面转换图的策略基类)
+  ├── scene_detect.ts              ← SceneDetect
+  (场景检测模型匹配)
+  │
+  ├── manual_policy.ts             ← 手动策略
+  ├── replay_policy.ts             ← 回放策略
+  ├── perf_policy.ts               ← 性能测试策略
+  │
+  ├── ptg_greedy_search_policy.ts  ← 贪心搜索策略
+  (BFS/DFS, 基于 PTG)
+  ├── ptg_naive_search_policy.ts   ← 朴素搜索策略
+  (基于 PTG, 默认)
+  ├── ptg_random_search_policy.ts  ← 随机搜索策略
+  (基于 PTG)
+  │
+  ├── llm_guided_policy.ts         ← LLM 引导策略
+  └── static_guided_policy.ts      ← ★ 静态引导策略
+
+  PolicyName 枚举 (src/policy/policy.ts:29-39)
+
+  ┌────────────┬──────────────┬──────────────────┐
+  │   枚举值   │      值      │      对应类      │
+  ├────────────┼──────────────┼──────────────────┤
+  │ MANUAL     │ 'manual'     │ ManualPolicy     │
+  ├────────────┼──────────────┼──────────────────┤
+  │ NAIVE      │ 'naive'      │ PtgNaiveSearchPo │
+  │            │              │ licy             │
+  ├────────────┼──────────────┼──────────────────┤
+  │ REPLAY     │ 'replay'     │ ReplayPolicy     │
+  ├────────────┼──────────────┼──────────────────┤
+  │ DFS_GREEDY │ 'greedy_dfs' │ PtgGreedySearchP │
+  │            │              │ olicy            │
+  ├────────────┼──────────────┼──────────────────┤
+  │ BFS_GREEDY │ 'greedy_bfs' │ PtgGreedySearchP │
+  │            │              │ olicy            │
+  ├────────────┼──────────────┼──────────────────┤
+  │ RANDOM     │ 'random'     │ PtgRandomSearchP │
+  │            │              │ olicy            │
+  ├────────────┼──────────────┼──────────────────┤
+  │ PERF_START │ 'perf_start_ │ PerfPolicy       │
+  │ _HAP       │ hap'         │                  │
+  ├────────────┼──────────────┼──────────────────┤
+  │ LLM_GUIDED │ 'llm_guided' │ LLMGuidedPolicy  │
+  ├────────────┼──────────────┼──────────────────┤
+  │ STATIC_GUI │ 'static_guid │ StaticGuidedPoli │
+  │ DED        │ ed'          │ cy               │
+  └────────────┴──────────────┴──────────────────┘
+
+  ---
+  3. static_guided 实现位置
+
+  文件: src/policy/static_guided_policy.ts
+
+  类: StaticGuidedPolicy extends PTGPolicy
+
+  核心方法:
+
+  ┌────────────────────┬─────┬───────────────────┐
+  │        方法        │ 行  │       功能        │
+  │                    │ 号  │                   │
+  ├────────────────────┼─────┼───────────────────┤
+  │                    │ 24- │ 初始化，设置      │
+  │ constructor        │ 33  │ arkuianalyzer.js  │
+  │                    │     │ 路径和工作目录    │
+  ├────────────────────┼─────┼───────────────────┤
+  │                    │     │ 核心事件生成：dum │
+  │ generateEventBased │ 40- │ p布局 →           │
+  │ OnPtg()            │ 124 │ 调用ArkAnalyzer → │
+  │                    │     │  读取结果生成事件 │
+  ├────────────────────┼─────┼───────────────────┤
+  │                    │ 126 │ 通过设备驱动获取  │
+  │ dumpLayout()       │ -12 │ 当前页面UI布局JSO │
+  │                    │ 9   │ N                 │
+  ├────────────────────┼─────┼───────────────────┤
+  │ generateEventBased │ 131 │ 解析 ArkAnalyzer  │
+  │ OnStaticJsonFile() │ -17 │ 输出的 *_guided.j │
+  │                    │ 6   │ son，生成事件     │
+  ├────────────────────┼─────┼───────────────────┤
+  │                    │ 178 │ 更新页面组件状态  │
+  │ updateState()      │ -19 │ 缓存              │
+  │                    │ 3   │                   │
+  └────────────────────┴─────┴───────────────────┘
+
+  ---
+  4. static_guided 使用的静态分析信息
+
+  4.1 信息获取流程
+
+  Step 1: dumpLayout()
+    └── 通过 ArkUiDriver.dumpLayout()
+  获取当前页面运行时UI布局 (JSON)
+    └── 保存为 layout_<timestamp>.json
+
+  Step 2: exec("node arkuianalyzer.js <config>")
+    └── 调用 ArkAnalyzer 进行静态分析
+    └── 配置来源: --staticConfig <file> CLI参数
+
+  Step 3: generateEventBasedOnStaticJsonFile()
+    └── 读取 ArkAnalyzer 输出的 *_guided.json 文件
+    └── 解析 edges → nodes → call_back_method →
+  生成事件
+
+  4.2 ArkAnalyzer 的静态分析能力
+
+  arkuianalyzer.js (位于 static/test-demo/)
+  执行以下静态分析:
+
+  ┌────────────────────────────┬──────────────────┐
+  │          分析模块          │       说明       │
+  ├────────────────────────────┼──────────────────┤
+  │                            │ 构建项目场景信息 │
+  │ SceneConfig + Scene        │ ，解析 ETS/TS    │
+  │                            │ 源文件           │
+  ├────────────────────────────┼──────────────────┤
+  │ UIFuncGraph +              │ 构建 UI          │
+  │ UIFuncGraphBuilder         │ 函数调用图       │
+  │                            │ (CallGraph)      │
+  ├────────────────────────────┼──────────────────┤
+  │                            │ 从每个类中提取   │
+  │ ArkUIViewTree              │ 静态 ArkUI       │
+  │                            │ 组件树           │
+  ├────────────────────────────┼──────────────────┤
+  │ MatchStaticAndDynamicCompo │ 匹配静态与动态组 │
+  │ nentTrees                  │ 件树             │
+  ├────────────────────────────┼──────────────────┤
+  │ GlobalOverlayTree          │ 处理全局 Overlay │
+  │                            │  节点            │
+  ├────────────────────────────┼──────────────────┤
+  │ tabBar_2_TabContent        │ 映射 TabBar 到   │
+  │                            │ TabContent 关系  │
+  └────────────────────────────┴──────────────────┘
+
+  输出产物:
+  - viewtree/componentTree_*.dot — 每个类的静态组件树
+  DOT 文件
+  - viewtree/componentTree_dynamic.dot —
+  匹配后的动态组件树
+  - out/cg.dot — UI 函数调用图
+  - *_guided.json — 引导事件文件(HapTest 实际消费的)
+
+  4.3 *_guided.json 的数据结构
+
+  HapTest 读取的 guided JSON 结构:
+  {
+    "edges": [
+      {
+        "nodes": [
+          {
+            "call_back_method": "onClick",
+            "bounds": "[[x1,y1][x2,y2]]",
+            "type": "...",
+            ...
+          }
+        ]
+      }
+    ]
+  }
+
+  4.4 事件生成映射 (EventBuilder.createEventFromNode,
+  src/event/event_builder.ts:155-178)
+
+  ┌──────────────────┬─────────────────────────────┐
+  │ call_back_method │       生成的事件类型        │
+  ├──────────────────┼─────────────────────────────┤
+  │ 包含 "onClick"   │ TouchEvent (调用            │
+  │                  │ component.getCenterPoint()) │
+  ├──────────────────┼─────────────────────────────┤
+  │ 包含 "onTouch"   │ TouchEvent (调用            │
+  │                  │ component.getCenterPoint()) │
+  ├──────────────────┼─────────────────────────────┤
+  │ 其他             │ 返回 undefined (不支持)     │
+  └──────────────────┴─────────────────────────────┘
+
+  ---
+  5. 是否调用 ArkAnalyzer
+
+  是，确实调用了 ArkAnalyzer。
+
+  调用位置: src/policy/static_guided_policy.ts:77
+
+  exec(`node arkuianalyzer.js ${this.config}`, (error,
+  stdout, stderr) => {
+      // ...
+      const event =
+  this.generateEventBasedOnStaticJsonFile(fileName);
+      // ...
+  });
+
+  调用链:
+  1. StaticGuidedPolicy 构造函数中设置 analyzerPath 为
+  static/test-demo/arkuianalyzer.js (第27行)
+  2. 执行前切换工作目录到 analyzerPath 所在目录
+  (第73行)
+  3. 通过 child_process.exec 同步执行 node
+  arkuianalyzer.js <config> (第77行)
+  4. config 参数来自 CLI 的 --staticConfig <file> 选项
+  (第32行)
+  5. 执行完毕后切换回原工作目录 (第118行)
+
+  ---
+  6. 完整调用链图
+
+  CLI入口
+  ════════════════════════════════════════════════════
+  ═══════════════
+    bin/haptest
+      └── src/cli/cli.ts::runFuzzCommand()
+            └── new Fuzz(fuzzOption)
+       [src/runner/fuzz.ts]
+                  └── new Device(options)
+       [src/device/device.ts]
+                  └── fuzz.start()
+                        └──
+  fuzz.startOneBundle(bundleName)
+                              ├── device.buildHap(...)
+       [src/device/device.ts:502]
+                              │     └──
+  HapBuilder.buildFromBundleName() /
+  buildFromHapFile()
+                              │
+  [src/model/builder/hap_builder.ts]
+                              │
+                              ├── new
+  RunnerManager(device, hap, options)
+                              │
+  [src/runner/runner_manager.ts:42]
+                              │     └──
+  PolicyBuilder.buildPolicyByName(device, hap,
+  options)
+                              │
+  [src/policy/policy_builder.ts:34]
+                              │           ├──
+  STATIC_GUIDED 分支:
+                              │           │     return
+  new StaticGuidedPolicy(
+                              │           │
+  device, hap, PolicyName.STATIC_GUIDED,
+                              │           │
+  options.staticConfig!
+                              │           │     )
+                              │           │
+  [src/policy/static_guided_policy.ts:24]
+                              │           │
+                              │           └──
+  其他策略分支...
+                              │
+                              └── device.connect(hap)
+       [src/device/device.ts:70]
+                              │     └──
+  buildDriverImpl(device)
+                              │
+  [src/device/uidriver/build.ts:29]
+                              │           ├── new
+  UitestAgent(device)
+                              │           ├── new
+  HypiumRpc()
+                              │           └── new
+  ArkUiDriver(rpc)
+                              │
+  [src/device/uidriver/arkui_driver.ts:24]
+                              │
+                              └── manager.start()
+       [src/runner/runner_manager.ts:68]
+                                    │
+                                    └──【主循环】
+                                        while (enabled
+  && policy.enabled)
+                                          │
+                                          ├──
+  device.getCurrentPage(hap)
+                                          │
+  [src/device/device.ts:377]
+                                          │     └──
+  device.dumpViewTree()
+                                          │
+  [src/device/device.ts:200]
+                                          │
+  └── driver.dumpLayout()
+                                          │
+       [src/device/uidriver/arkui_driver.ts:82]
+                                          │
+       └── PageBuilder.buildPagesFromLayout(layout)
+                                          │
+             [src/model/builder/page_builder.ts:137]
+                                          │
+                                          ├──
+  policy.generateEvent(page)
+                                          │     │
+                                          │     │  ★
+  StaticGuidedPolicy 调用链:
+                                          │     │
+                                          │     ├──
+  PTGPolicy.generateEvent(page)
+                                          │     │
+  [src/policy/ptg_policy.ts:44]
+                                          │     │
+  ├── 状态检查 (FLAG_INIT → StopHapEvent)
+                                          │     │
+  ├── HAP停止检查 → AbilityEvent
+                                          │     │
+  ├── SceneDetect.generateEventBasedOnModel(page)
+                                          │     │
+  │     [src/policy/scene_detect.ts:49]
+                                          │     │
+  │     └── 匹配预定义场景模型
+  (config/scene_detection_model/*.json)
+                                          │     │
+  │
+                                          │     │
+  └── StaticGuidedPolicy.generateEventBasedOnPtg()
+                                          │     │
+       [src/policy/static_guided_policy.ts:40]
+                                          │     │
+       │
+                                          │     │
+       ├── pageComponentMap 缓存检查
+                                          │     │
+       │
+                                          │     │
+       ├── dumpLayout()
+                                          │     │
+       │     └── device.getDriver().dumpLayout()
+                                          │     │
+       │           运行时 UI 布局 JSON
+                                          │     │
+       │
+                                          │     │
+       ├── 保存 layout_<timestamp>.json
+                                          │     │
+       │
+                                          │     │
+       ├── exec("node arkuianalyzer.js <config>")
+                                          │     │
+       │     │  [static/test-demo/arkuianalyzer.js]
+                                          │     │
+       │     │
+                                          │     │
+       │     │  ★ ArkAnalyzer 内部流程:
+                                          │     │
+       │     │
+                                          │     │
+       │     ├── SceneConfig.buildFromJson(config)
+                                          │     │
+       │     │     └── 读取项目配置 (ets配置文件等)
+                                          │     │
+       │     │
+                                          │     │
+       │     ├── Scene.buildBasicInfo(sceneConfig)
+                                          │     │
+       │     ├── Scene.buildScene4HarmonyProject()
+                                          │     │
+       │     │     └── 解析 ETS/TS 源文件
+                                          │     │
+       │     │
+                                          │     │
+       │     ├── Scene.inferTypes()
+                                          │     │
+       │     │     └── 类型推断
+                                          │     │
+       │     │
+                                          │     │
+       │     ├── printViewTree(scene)
+                                          │     │
+       │     │     └── 导出每个类的 ArkUIViewTree →
+  .dot 文件
+                                          │     │
+       │     │
+                                          │     │
+       │     ├── UIFuncGraphBuilder.InitNode()
+                                          │     │
+       │     │     └── 初始化 UI 函数图节点
+                                          │     │
+       │     │
+                                          │     │
+       │     ├──
+  UIFuncGraphBuilder.FindApiFromViewTreeUseCallGraph()
+                                          │     │
+       │     │     └── 通过调用图查找 ViewTree 中的
+  API
+                                          │     │
+       │     │
+                                          │     │
+       │     ├──
+  MatchStaticAndDynamicComponentTrees()
+                                          │     │
+       │     │     └── 匹配静态与动态组件树
+                                          │     │
+       │     │
+                                          │     │
+       │     └── uifuncgraph.dump()
+                                          │     │
+       │           └── 输出调用图 cg.dot
+                                          │     │
+       │
+                                          │     │
+       └──
+  generateEventBasedOnStaticJsonFile(fileName)
+                                          │     │
+             [src/policy/static_guided_policy.ts:131]
+                                          │     │
+             │
+                                          │     │
+             ├── 读取 out/<name>_guided.json
+                                          │     │
+             │   结构: { edges: [{ nodes: [...] }] }
+                                          │     │
+             │
+                                          │     │
+             ├── 遍历 edges → nodes
+                                          │     │
+             │     └──
+  EventBuilder.createEventFromNode(node)
+                                          │     │
+             │
+  [src/event/event_builder.ts:155]
+                                          │     │
+             │           ├── 解析
+  node.call_back_method
+                                          │     │
+             │           ├──
+  SerializeUtils.deserialize(Component, node)
+                                          │     │
+             │           │
+  [src/utils/serialize_utils.ts:37]
+                                          │     │
+             │           │     └── 将 bounds
+  字符串解析为 Point[]
+                                          │     │
+             │           │
+                                          │     │
+             │           └── onTouch/onClick → new
+  TouchEvent(point)
+                                          │     │
+             │
+                                          │     │
+             └── 随机选择一个事件返回 (多个时)
+                                          │     │
+                                          │     └──
+  异步等待中返回 WaitEvent
+                                          │
+    [src/event/wait_event.ts]
+                                          │
+                                          └──
+  【事件执行】
+
+  EventAction(device, hap, page, event)
+
+  [src/runner/event_action.ts]
+                                                ├──
+  event.send(device)
+                                                │
+  └── TouchEvent.send() → device.click(point)
+                                                │
+       [src/event/ui_event.ts:66]
+                                                │
+       └── ArkUiDriver.click(x, y)
+                                                │
+             [src/device/uidriver/arkui_driver.ts:48]
+                                                │
+                                                └──
+  device.getCurrentPage(hap)  ← 获取新页面
+
+  架构层次总览
+
+  ┌───────────────────────────────────────────────────
+  ─────────────┐
+  │  CLI Layer          bin/haptest → src/cli/cli.ts
+              │
+  ├───────────────────────────────────────────────────
+  ─────────────┤
+  │  Runner Layer       src/runner/fuzz.ts
+              │
+  │                     src/runner/runner_manager.ts
+              │
+  │                     src/runner/event_action.ts
+              │
+  │                     src/runner/fuzz_options.ts
+              │
+  ├───────────────────────────────────────────────────
+  ─────────────┤
+  │  Policy Layer       src/policy/policy.ts
+  (基类)       │
+  │                     src/policy/policy_builder.ts
+  (工厂)       │
+  │                     src/policy/ptg_policy.ts
+  (PTG基类)    │
+  │                     src/policy/scene_detect.ts
+  (场景检测)    │
+  │
+  ┌─────────────────────────────────────┐    │
+  │                     │ static_guided_policy.ts ★
+        │    │
+  │                     │   ├── dumpLayout()
+  (动态UI布局)    │    │
+  │                     │   ├── exec arkuianalyzer.js
+        │    │
+  │                     │   │   (静态分析:
+  调用图+组件树)      │    │
+  │                     │   └──
+  generateEventBasedOnStatic..  │    │
+  │                     │       (解析 guided JSON →
+  │  CLI Layer          bin/haptest → src/cli/cli.ts               │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Runner Layer       src/runner/fuzz.ts                         │
+  │                     src/runner/runner_manager.ts               │
+  │                     src/runner/event_action.ts                 │
+  │                     src/runner/fuzz_options.ts                 │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Policy Layer       src/policy/policy.ts          (基类)       │
+  │                     src/policy/policy_builder.ts  (工厂)       │
+  │                     src/policy/ptg_policy.ts      (PTG基类)    │
+  │                     src/policy/scene_detect.ts    (场景检测)    │
+  │                     ┌─────────────────────────────────────┐    │
+  │                     │ static_guided_policy.ts ★          │    │
+  │                     │   ├── dumpLayout()  (动态UI布局)    │    │
+  │                     │   ├── exec arkuianalyzer.js        │    │
+  │                     │   │   (静态分析: 调用图+组件树)      │    │
+  │                     │   └── generateEventBasedOnStatic..  │    │
+  │                     │       (解析 guided JSON → Event)    │    │
+  │                     └─────────────────────────────────────┘    │
+  │                     manual / replay / greedy / random / ...     │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Event Layer        src/event/event.ts             (基类)      │
+  │                     src/event/ui_event.ts          (UI事件)     │
+  │                     src/event/system_event.ts      (系统事件)   │
+  │                     src/event/key_event.ts         (按键事件)   │
+  │                     src/event/wait_event.ts        (等待事件)   │
+  │                     src/event/event_builder.ts     (事件工厂)   │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Device Layer       src/device/device.ts           (设备抽象)   │
+  │                     src/device/uidriver/           (UI驱动)     │
+  │                     src/device/hdc.ts             (HDC通信)     │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Model Layer        src/model/hap.ts / page.ts / ptg.ts       │
+  │                     src/model/component.ts / viewtree.ts      │
+  └────────────────────────────────────────────────────────────────┘

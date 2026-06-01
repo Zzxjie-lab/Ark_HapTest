@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "APP描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "APP名称"
+    },
+    {
+      "name": "internet_permission_reason",
+      "value": "需要联网权限"
+    },
+    {
+      "name": "network_permission_reason",
+      "value": "需要获取网络信息权限"
+    },
+    {
+      "name": "location_permission_reason",
+      "value": "需要位置信息权限"
+    },
+    {
+      "name": "camera_permission_reason",
+      "value": "需要相机权限"
+    },
+    {
+      "name": "microphone_permission_reason",
+      "value": "需要麦克风权限"
+    },
+    {
+      "name": "read_media_permission_reason",
+      "value": "需要读取媒体文件权限"
+    },
+    {
+      "name": "write_media_permission_reason",
+      "value": "需要写入媒体文件权限"
+    },
+    {
+      "name": "media_location_permission_reason",
+      "value": "需要访问媒体位置信息权限"
+    },
+    {
+      "name": "music_Bofang_reason",
+      "value": "需要音频播放"
+    },
+    {
+      "name": "Music_Read_reason",
+      "value": "需要音频读取"
+    }
+  ]
+}
