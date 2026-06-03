@@ -36,6 +36,7 @@ export enum PolicyName {
     PERF_START_HAP = 'perf_start_hap',
     LLM_GUIDED = 'llm_guided',
     STATIC_GUIDED = 'static_guided',
+    ENHANCED_GUIDED = 'enhanced_guided',
 }
 
 export abstract class Policy {

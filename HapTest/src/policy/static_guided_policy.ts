@@ -15,11 +15,11 @@ import { WaitEvent } from "../event/wait_event";
 export class StaticGuidedPolicy extends PTGPolicy {
     private pageComponentMap: Map<string, Component[]>;
     private dumpDir: string = "../../static/test-demo/layout/";
-    private outputDir: string = "../../static/test-demo/out/";
-    private analyzerPath: string; 
+    protected outputDir: string = "../../static/test-demo/out/";
+    private analyzerPath: string;
     private originalCwd: string;
     private targetDir: string;
-    private config: string;
+    protected config: string;
 
     constructor(device: Device, hap: Hap, name: PolicyName, config: string) {
         super(device, hap, name, true);
@@ -128,7 +128,7 @@ export class StaticGuidedPolicy extends PTGPolicy {
         return JSON.stringify(layout, null, 4); // 转换为 JSON 字符串
     }
 
-    private generateEventBasedOnStaticJsonFile(jsonfile:string): Event|undefined {
+    protected generateEventBasedOnStaticJsonFile(jsonfile:string): Event|undefined {
         let events: Event[] = []; // 用于存储所有 event 的内容
         try {
             const file = jsonfile.replace(".json","_guided.json"); // 指定一个具体的文件名        

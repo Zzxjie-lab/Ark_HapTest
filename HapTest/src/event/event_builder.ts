@@ -19,6 +19,7 @@ import { Component } from '../model/component';
 import { RandomUtils } from '../utils/random_utils';
 import { Event } from './event';
 import { CombinedKeyEvent, KeyEvent } from './key_event';
+import { KeyCode } from '../model/key_code';
 import { AbilityEvent, ExitEvent, StopHapEvent } from './system_event';
 import { FlingEvent, InputTextEvent, LongTouchEvent, ScrollEvent, SwipeEvent, TouchEvent, UIEvent, DragEvent } from './ui_event';
 import { Point } from '../model/point';
@@ -159,14 +160,14 @@ export class EventBuilder {
         let component = SerializeUtils.deserialize(Component, node);
         console.info(`解析组件: ${JSON.stringify(component)}`);
         if(eventType.includes("onClick")){
-            eventType = "onClick";  
+            eventType = "onClick";
             console.info(`标准化事件类型为: ${eventType}`);
         } else if(eventType.includes("onTouch")){
             eventType = "onTouch";
         }
         switch (eventType) {
-            case 'onClick': 
-            case 'onTouch':  
+            case 'onClick':
+            case 'onTouch':
                 console.info(`组件 bounds: ${JSON.stringify(component.bounds)}, type: ${typeof component.bounds}`);
                 let point = component.getCenterPoint();
                 console.info(`生成 TouchEvent，坐标: (${point.x}, ${point.y})`);
@@ -175,5 +176,80 @@ export class EventBuilder {
                 // throw new Error(`Unsupported event type: ${eventType}`);
                 return undefined;
         }
+    }
+
+    /** 增强版：从静态分析节点生成事件，支持更多回调类型 */
+    static createEnhancedEventFromNode(node: any): UIEvent | KeyEvent | undefined {
+        const rawCallbacks: string = node.call_back_method || "";
+        const component = SerializeUtils.deserialize(Component, node);
+
+        // 优先级: onClick > onTouch > onLongClick > onScroll > onChange > onBackPressed > 其他
+        if (rawCallbacks.includes("onClick")) {
+            return new TouchEvent(component.getCenterPoint());
+        }
+        if (rawCallbacks.includes("onTouch")) {
+            return new TouchEvent(component.getCenterPoint());
+        }
+        if (rawCallbacks.includes("onLongClick")) {
+            return new LongTouchEvent(component);
+        }
+        if (
+            rawCallbacks.includes("onScroll") ||
+            rawCallbacks.includes("onScrollStart") ||
+            rawCallbacks.includes("onScrollStop") ||
+            rawCallbacks.includes("onReachStart") ||
+            rawCallbacks.includes("onReachEnd") ||
+            rawCallbacks.includes("onScrollIndex")
+        ) {
+            return new ScrollEvent(component, Direct.DOWN);
+        }
+        if (
+            rawCallbacks.includes("onChange") ||
+            rawCallbacks.includes("onSubmit") ||
+            rawCallbacks.includes("onEditChange") ||
+            rawCallbacks.includes("onTextSelectionChange")
+        ) {
+            const text = "test_input_" + RandomUtils.genRandomString(4);
+            return new InputTextEvent(component, text);
+        }
+        if (rawCallbacks.includes("onBackPressed")) {
+            return new KeyEvent(KeyCode.KEYCODE_BACK);
+        }
+        // onAppear/onDisAppear/onShown/onHidden 等被动事件 — 不主动触发
+        return undefined;
+    }
+
+    /** 按组件类型匹配静态回调清单，生成事件（xpath 匹配失败时的降级方案） */
+    static createEventFromInventory(
+        comp: Component,
+        inventory: Array<{ type: string; callbacks: string[] }>,
+    ): UIEvent | KeyEvent | undefined {
+        const entry = inventory.find((e) => e.type === comp.type);
+        if (!entry) return undefined;
+
+        const cbSet = new Set(entry.callbacks);
+
+        // 按优先级尝试: onClick > onTouch > onLongClick > onChange/onSubmit > onScroll
+        if (cbSet.has("onClick") || cbSet.has("onTouch")) {
+            return new TouchEvent(comp.getCenterPoint());
+        }
+        if (cbSet.has("onLongClick")) {
+            return new LongTouchEvent(comp);
+        }
+        if (cbSet.has("onChange") || cbSet.has("onSubmit") || cbSet.has("onEditChange") || cbSet.has("onTextSelectionChange")) {
+            if (comp.inputable) {
+                const text = "test_input_" + RandomUtils.genRandomString(4);
+                return new InputTextEvent(comp, text);
+            }
+            return new TouchEvent(comp.getCenterPoint());
+        }
+        if (cbSet.has("onScroll") || cbSet.has("onScrollStart") || cbSet.has("onScrollStop") ||
+            cbSet.has("onReachStart") || cbSet.has("onReachEnd") || cbSet.has("onScrollIndex")) {
+            return new ScrollEvent(comp, Direct.DOWN);
+        }
+        if (cbSet.has("onBackPressed")) {
+            return new KeyEvent(KeyCode.KEYCODE_BACK);
+        }
+        return undefined;
     }
 }

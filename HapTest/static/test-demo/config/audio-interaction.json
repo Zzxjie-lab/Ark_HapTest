@@ -1,0 +1,6 @@
+{
+    "targetProjectName": "audio-interaction",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/audio-interaction",
+    "sdks": [{"name": "etsSdk", "path": "E:/OpenHarmony/SDK6/20/ets", "moduleName": ""}],
+    "options": {"enableLeadingComments": true}
+}

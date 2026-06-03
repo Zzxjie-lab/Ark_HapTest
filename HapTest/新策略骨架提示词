@@ -1,0 +1,44 @@
+你是 HapTest 项目的自动化开发助理。任务是**新增一个 Enhanced Policy**，用于后续 ArkAnalyzer 集成，但必须保证安全和可跑通。
+
+工作环境：
+- 项目路径：E:\OpenHarmony\HapTest
+- 当前已有策略：greedy_dfs, static_guided, llm_guided
+- 代码基于 TypeScript
+- 文件目录中 src/policy/ 下已有各策略文件
+
+任务目标：
+1. 在现有 HapTest 项目中添加新的策略：
+   - 名称：enhanced_guided
+   - 类型：继承 static_guided_policy
+   - 功能：初始阶段不增加额外逻辑，只能跑通 CLI 并输出日志/目录
+2. 保证新增策略不影响已有策略（greedy_dfs、static_guided、llm_guided）。
+3. 注册策略：
+   - 在 PolicyName 枚举中添加 ENHANCED_GUIDED
+   - 在 PolicyBuilder 中添加对应实例分支
+   - CLI 中可通过 --policy enhanced_guided 调用
+
+操作要求：
+1. 不指定行号或内部函数签名，允许自主扫描 src/policy/ 下的类和文件。
+2. 只做必要修改：
+   - 新建 enhanced_guided_policy.ts
+   - 修改 policy.ts 注册新策略
+   - 修改 policy_builder.ts 返回新策略实例
+3. 编译验证：
+   - 修改完成后执行 npm run build
+   - 确保 TypeScript 编译无报错
+4. 验证 CLI：
+   - 能执行 haptest --policy enhanced_guided 对 HelloArkTS 或简单项目运行
+   - 输出生成 out_enhanced 文件夹或类似日志
+
+输出要求：
+1. 修改的文件列表和简要说明
+2. 每个文件主要修改内容描述
+3. 验证命令示例
+4. 预期输出目录结构
+5. 任何注意事项或可能的潜在问题
+
+注意事项：
+- 不实现 ArkAnalyzer 深度整合逻辑
+- 不修改 static_guided 的内部实现
+- 分步完成，每步执行后验证可跑通
+- 目标是获得**一个可以安全切换的策略骨架**，为后续增强留接口

@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Column",
+    "callbacks": [
+      "onClick"
+    ]
+  },
+  {
+    "type": "Image",
+    "callbacks": [
+      "onClick"
+    ]
+  },
+  {
+    "type": "Row",
+    "callbacks": [
+      "onClick"
+    ]
+  },
+  {
+    "type": "Slider",
+    "callbacks": [
+      "onChange"
+    ]
+  },
+  {
+    "type": "Swiper",
+    "callbacks": [
+      "onChange"
+    ]
+  }
+]

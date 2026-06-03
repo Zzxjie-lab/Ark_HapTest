@@ -38,3 +38,14 @@ haptest.log
 # Temp
 temp/
 *.tmp
+# Test output directories
+out/
+out_*/
+out_cov/
+out_enhanced_cov/
+results*.csv
+
+# Build artifacts in projects
+**/.hvigor/
+**/oh_modules/
+**/build/

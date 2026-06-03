@@ -26,6 +26,7 @@ import { PerfPolicy } from './perf_policy';
 import { LLMGuidedPolicy } from './llm_guided_policy';
 import { PTG } from '../model/ptg';
 import { StaticGuidedPolicy } from './static_guided_policy';
+import { EnhancedGuidedPolicy } from './enhanced_guided_policy';
 
 export class PolicyBuilder {
     static buildLLMPolicy(device: Device, hap: Hap, options: FuzzOptions, ptg: PTG): LLMGuidedPolicy {
@@ -47,6 +48,8 @@ export class PolicyBuilder {
         }  else if (options.policyName === PolicyName.STATIC_GUIDED) {
             // 静态引导策略实际上是基于PTG的，因此这里复用PTG的类
             return new StaticGuidedPolicy(device, hap, PolicyName.STATIC_GUIDED, options.staticConfig!);
+        }  else if (options.policyName === PolicyName.ENHANCED_GUIDED) {
+            return new EnhancedGuidedPolicy(device, hap, PolicyName.ENHANCED_GUIDED, options.staticConfig);
         }
         else {
             return new PtgNaiveSearchPolicy(device, hap, PolicyName.NAIVE);
