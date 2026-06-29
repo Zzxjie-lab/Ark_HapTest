@@ -1,0 +1,3 @@
+[submodule "entry/src/main/cpp/libboundscheck"]
+	path = entry/src/main/cpp/libboundscheck
+	url = https://gitee.com/openeuler/libboundscheck.git

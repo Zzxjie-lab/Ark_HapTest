@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "APILevelAdapt"
+    },
+    {
+      "name": "action_bar_scene",
+      "value": "动作条场景"
+    },
+    {
+      "name": "button_display_scene",
+      "value": "按钮展示场景"
+    },
+    {
+      "name": "scroll_scene",
+      "value": "滚动场景"
+    },
+    {
+      "name": "marquee_display_scene",
+      "value": "走马灯场景"
+    },
+    {
+      "name": "audio_volume_scene",
+      "value": "音频音量场景"
+    },
+    {
+      "name": "index_label",
+      "value": "多API版本兼容示例"
+    },
+    {
+      "name": "audio_volume_button_label",
+      "value": "检测是否支持音量管理器相关功能"
+    },
+    {
+      "name": "support_label",
+      "value": "支持"
+    },
+    {
+      "name": "unsupport_label",
+      "value": "不支持"
+    },
+    {
+      "name": "fling_prompt_dialog_tip",
+      "value": "惯性滚动中..."
+    },
+    {
+      "name": "scroll_to_top_tip",
+      "value": "滚动到了顶部!"
+    },
+    {
+      "name": "scroll_to_bottom_tip",
+      "value": "滚动到了底部!"
+    },
+    {
+      "name": "zoom_start_trigger_tip",
+      "value": "手势缩放开始!"
+    },
+    {
+      "name": "zoom_stop_trigger_tip",
+      "value": "手势缩放停止!"
+    }
+  ]
+}

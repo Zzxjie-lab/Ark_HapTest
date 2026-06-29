@@ -1,0 +1,88 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "video play"
+    },
+    {
+      "name": "video_res_1",
+      "value": "第一集 吃西瓜"
+    },
+    {
+      "name": "video_res_2",
+      "value": "第二集 蚂蚁"
+    },
+    {
+      "name": "video_res_3",
+      "value": "第三集 洞穴"
+    },
+    {
+      "name": "video_res_4",
+      "value": "第四集 失踪"
+    },
+    {
+      "name": "video_res_5",
+      "value": "第五集 吃布丁"
+    },
+    {
+      "name": "video_speed_1_0X",
+      "value": "1.0X"
+    },
+    {
+      "name": "video_speed_1_25X",
+      "value": "1.25X"
+    },
+    {
+      "name": "video_speed_1_75X",
+      "value": "1.75X"
+    },
+    {
+      "name": "video_speed_2_0X",
+      "value": "2.0X"
+    },
+    {
+      "name": "video_warn",
+      "value": "Exit the program and check if the network is connected or available!"
+    },
+    {
+      "name": "dialog_cancel",
+      "value": "cancel"
+    },
+    {
+      "name": "dialog_play_speed",
+      "value": "play speed"
+    },
+    {
+      "name": "playing",
+      "value": "playing"
+    },
+    {
+      "name": "default_track",
+      "value": "default_track"
+    },
+    {
+      "name": "track_name",
+      "value": "track:"
+    },
+    {
+      "name": "track_name_1",
+      "value": "track:1"
+    },
+    {
+      "name": "thumbnail_page",
+      "value": "进入获取缩略图页面"
+    },
+    {
+      "name": "get_thumbnail",
+      "value": "获取缩略图(test.mp4)"
+    }
+  ]
+}

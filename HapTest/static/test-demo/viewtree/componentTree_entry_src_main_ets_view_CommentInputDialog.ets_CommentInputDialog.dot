@@ -1,0 +1,151 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0signature [shape=ellipse label="signature
+@imag...rc/main/ets/view/CommentInputDialog.ets: CommentInputDialog" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node0 -> Node0signature
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node2 [label="Column"]
+    Node0 -> Node2
+    Node2attributes [shape=ellipse label="property|Event
+create|padding|backgroundColor|offset" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2extra [shape=ellipse label="extra\nxpath: root/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node3 [label="RelativeContainer"]
+    Node2 -> Node3
+    Node3attributes [shape=ellipse label="property|Event
+create|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/Column/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="TextInput"]
+    Node3 -> Node4
+    Node4val [shape=ellipse label="StateValues
+ text" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4val
+    Node4attributes [shape=ellipse label="property|Event
+create|height|padding|margin|onChange|defaultFocus|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4extra [shape=ellipse label="extra\nxpath: root/Column/RelativeContainer/TextInput" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Image"]
+    Node3 -> Node5
+    Node5val [shape=ellipse label="StateValues
+ selectedImages" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5val
+    Node5attributes [shape=ellipse label="property|Event
+create|height|width|onClick|margin|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/Column/RelativeContainer/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="Button"]
+    Node3 -> Node6
+    Node6val [shape=ellipse label="StateValues
+ text|textInComment|selectedImages|imagesInComment" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6val
+    Node6attributes [shape=ellipse label="property|Event
+creat...orderRadius|backgroundColor|fontColor|onClick|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6attributes
+    Node6extra [shape=ellipse label="extra\nxpath: root/Column/RelativeContainer/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="If"]
+    Node2 -> Node7
+    Node7val [shape=ellipse label="StateValues
+ selectedImages" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7val
+    Node7attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="IfBranch"]
+    Node7 -> Node8
+    Node8attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8attributes
+    Node8extra [shape=ellipse label="extra\nxpath: root/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="View"]
+    Node8 -> Node9
+    Node9val [shape=ellipse label="StateValues
+ selectedImages" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9val
+    Node9attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9signature [shape=ellipse label="signature
+@imag...nt/entry/src/main/ets/view/ImageListView.ets: ImageListView" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9signature
+    Node9extra [shape=ellipse label="extra\nxpath: root/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node11 [label="root"]
+    Node9 -> Node11
+    Node11extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/List/ListItem/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node12 [label="List"]
+    Node11 -> Node12
+    Node12attributes [shape=ellipse label="property|Event
+create|height|width|padding|listDirection|alignSelf" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node12 -> Node12attributes
+    Node12extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/List/ListItem/Column/List" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="ForEach"]
+    Node12 -> Node13
+    Node13val [shape=ellipse label="StateValues
+ selectedImages" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13val
+    Node13attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13attributes
+    Node13extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/List/ListItem/Column/List" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="ListItem"]
+    Node13 -> Node14
+    Node14attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/List/ListItem/Column/List/ListItem" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="RelativeContainer"]
+    Node14 -> Node15
+    Node15attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15attributes
+    Node15extra [shape=ellipse label="extra\nxpath...tainer/List/ListItem/Column/List/ListItem/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node16 [label="Image"]
+    Node15 -> Node16
+    Node16attributes [shape=ellipse label="property|Event
+create|height|width|borderRadius|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node16 -> Node16attributes
+    Node16extra [shape=ellipse label="extra\nxpath.../List/ListItem/Column/List/ListItem/RelativeContainer/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node16 -> Node16extra
+    Node17 [label="If"]
+    Node15 -> Node17
+    Node17attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node17 -> Node17attributes
+    Node17extra [shape=ellipse label="extra\nxpath...tainer/List/ListItem/Column/List/ListItem/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="IfBranch"]
+    Node17 -> Node18
+    Node18attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18attributes
+    Node18extra [shape=ellipse label="extra\nxpath...tainer/List/ListItem/Column/List/ListItem/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="Image"]
+    Node18 -> Node19
+    Node19val [shape=ellipse label="StateValues
+ selectedImages" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19val
+    Node19attributes [shape=ellipse label="property|Event
+create|height|width|onClick|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19attributes
+    Node19extra [shape=ellipse label="extra\nxpath.../List/ListItem/Column/List/ListItem/RelativeContainer/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+}

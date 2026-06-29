@@ -1,0 +1,14 @@
+[
+  {
+    "type": "Row",
+    "callbacks": [
+      "onTouch"
+    ]
+  },
+  {
+    "type": "View",
+    "callbacks": [
+      "onClick"
+    ]
+  }
+]

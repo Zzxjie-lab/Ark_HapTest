@@ -6,14 +6,186 @@ digraph G {
     undefined -> Node0
     Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node0 -> Node0extra
-    Node1 [label="RelativeContainer" style=filled color="orange"]
+    Node1 [label="Navigation" style=filled color="orange"]
     Node0 -> Node1
-    Node1extra [shape=ellipse label="extra\nxpath: root/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1extra [shape=ellipse label="extra\nxpath: root/Navigation" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node1 -> Node1extra
-    Node2 [label="Text" style=filled color="orange"]
+    Node2 [label="NavigationContent" style=filled color="orange"]
     Node1 -> Node2
-    Node2extra [shape=ellipse label="extra\ntext: Welcome" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2extra [shape=ellipse label="extra\nxpath: root/Navigation/NavigationContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node2 -> Node2extra
-    Node2extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
-    Node2 -> Node2extra
+    Node3 [label="NavDestination" style=filled color="orange"]
+    Node2 -> Node3
+    Node3extra [shape=ellipse label="extra\nxpath: root/Navigation/NavigationContent/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="NavDestinationContent" style=filled color="orange"]
+    Node3 -> Node4
+    Node4extra [shape=ellipse label="extra\nxpath...tion/NavigationContent/NavDestination/NavDestinationContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Stack" style=filled color="orange"]
+    Node4 -> Node5
+    Node5extra [shape=ellipse label="extra\nxpath...avigationContent/NavDestination/NavDestinationContent/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="Image" style=filled color="orange"]
+    Node5 -> Node6
+    Node6extra [shape=ellipse label="extra\nxpath...ionContent/NavDestination/NavDestinationContent/Stack/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Row" style=filled color="orange"]
+    Node5 -> Node7
+    Node7extra [shape=ellipse label="extra\nxpath...ationContent/NavDestination/NavDestinationContent/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="Stack" style=filled color="orange"]
+    Node7 -> Node8
+    Node8extra [shape=ellipse label="extra\nxpath...ontent/NavDestination/NavDestinationContent/Stack/Row/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="Swiper" style=filled color="orange"]
+    Node8 -> Node9
+    Node9extra [shape=ellipse label="extra\nxpath...NavDestination/NavDestinationContent/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="__Common__" style=filled color="orange"]
+    Node9 -> Node10
+    Node10extra [shape=ellipse label="extra\nxpath...ion/NavDestinationContent/Stack/Row/Stack/Swiper/__Common__" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node11 [label="GridRow" style=filled color="orange"]
+    Node10 -> Node11
+    Node11extra [shape=ellipse label="extra\nxpath...estinationContent/Stack/Row/Stack/Swiper/__Common__/GridRow" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node12 [label="GridCol" style=filled color="orange"]
+    Node11 -> Node12
+    Node12extra [shape=ellipse label="extra\nxpath...onContent/Stack/Row/Stack/Swiper/__Common__/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="Column" style=filled color="orange"]
+    Node12 -> Node13
+    Node13extra [shape=ellipse label="extra\nxpath...nt/Stack/Row/Stack/Swiper/__Common__/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="Row" style=filled color="orange"]
+    Node13 -> Node14
+    Node14extra [shape=ellipse label="extra\nxpath...tack/Row/Stack/Swiper/__Common__/GridRow/GridCol/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="Image" style=filled color="orange"]
+    Node14 -> Node15
+    Node15extra [shape=ellipse label="extra\nxpath...ow/Stack/Swiper/__Common__/GridRow/GridCol/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node16 [label="Column" style=filled color="orange"]
+    Node13 -> Node16
+    Node16extra [shape=ellipse label="extra\nxpath...k/Row/Stack/Swiper/__Common__/GridRow/GridCol/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node16 -> Node16extra
+    Node17 [label="Flex" style=filled color="orange"]
+    Node16 -> Node17
+    Node17extra [shape=ellipse label="extra\nxpath.../Stack/Swiper/__Common__/GridRow/GridCol/Column/Column/Flex" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="Text" style=filled color="orange"]
+    Node17 -> Node18
+    Node18extra [shape=ellipse label="extra\ntext: 谁了解" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node18extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Flex/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="Text" style=filled color="orange"]
+    Node16 -> Node19
+    Node19extra [shape=ellipse label="extra\ntext: 小安安" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node19extra [shape=ellipse label="extra\nxpath.../Stack/Swiper/__Common__/GridRow/GridCol/Column/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node20 [label="Blank" style=filled color="orange"]
+    Node13 -> Node20
+    Node20extra [shape=ellipse label="extra\nxpath...ck/Row/Stack/Swiper/__Common__/GridRow/GridCol/Column/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node20 -> Node20extra
+    Node21 [label="Column" style=filled color="orange"]
+    Node13 -> Node21
+    Node21extra [shape=ellipse label="extra\nxpath...k/Row/Stack/Swiper/__Common__/GridRow/GridCol/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node21 -> Node21extra
+    Node22 [label="Row" style=filled color="orange"]
+    Node21 -> Node22
+    Node22extra [shape=ellipse label="extra\nxpath...w/Stack/Swiper/__Common__/GridRow/GridCol/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node22 -> Node22extra
+    Node23 [label="Image" style=filled color="orange"]
+    Node22 -> Node23
+    Node23extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node23 -> Node23extra
+    Node24 [label="Image" style=filled color="orange"]
+    Node22 -> Node24
+    Node24extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node24 -> Node24extra
+    Node25 [label="Image" style=filled color="orange"]
+    Node22 -> Node25
+    Node25extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node25 -> Node25extra
+    Node26 [label="Image" style=filled color="orange"]
+    Node22 -> Node26
+    Node26extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node26 -> Node26extra
+    Node27 [label="Column" style=filled color="orange"]
+    Node21 -> Node27
+    Node27extra [shape=ellipse label="extra\nxpath...tack/Swiper/__Common__/GridRow/GridCol/Column/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node27 -> Node27extra
+    Node28 [label="Slider" style=filled color="orange"]
+    Node27 -> Node28
+    Node28extra [shape=ellipse label="extra\ntext: 49966.750000" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node28 -> Node28extra
+    Node28extra [shape=ellipse label="extra\nxpath...iper/__Common__/GridRow/GridCol/Column/Column/Column/Slider" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node28 -> Node28extra
+    Node29 [label="Row" style=filled color="orange"]
+    Node27 -> Node29
+    Node29extra [shape=ellipse label="extra\nxpath.../Swiper/__Common__/GridRow/GridCol/Column/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node29 -> Node29extra
+    Node30 [label="Text" style=filled color="orange"]
+    Node29 -> Node30
+    Node30extra [shape=ellipse label="extra\ntext: 00:49" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node30 -> Node30extra
+    Node30extra [shape=ellipse label="extra\nxpath...er/__Common__/GridRow/GridCol/Column/Column/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node30 -> Node30extra
+    Node31 [label="Text" style=filled color="orange"]
+    Node29 -> Node31
+    Node31extra [shape=ellipse label="extra\ntext: 01:03" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node31 -> Node31extra
+    Node31extra [shape=ellipse label="extra\nxpath...er/__Common__/GridRow/GridCol/Column/Column/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node31 -> Node31extra
+    Node32 [label="Row" style=filled color="orange"]
+    Node21 -> Node32
+    Node32extra [shape=ellipse label="extra\nxpath...w/Stack/Swiper/__Common__/GridRow/GridCol/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node32 -> Node32extra
+    Node33 [label="Image" style=filled color="orange"]
+    Node32 -> Node33
+    Node33extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node33 -> Node33extra
+    Node34 [label="Image" style=filled color="orange"]
+    Node32 -> Node34
+    Node34extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node34 -> Node34extra
+    Node35 [label="Image" style=filled color="orange"]
+    Node32 -> Node35
+    Node35extra [shape=ellipse label="extra\nxpath...k/Swiper/__Common__/GridRow/GridCol/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node35 -> Node35extra
+    Node36 [label="SwiperIndicator" style=filled color="orange"]
+    Node9 -> Node36
+    Node36extra [shape=ellipse label="extra\nxpath...avDestinationContent/Stack/Row/Stack/Swiper/SwiperIndicator" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node36 -> Node36extra
+    Node37 [label="__Common__" style=filled color="orange"]
+    Node8 -> Node37
+    Node37extra [shape=ellipse label="extra\nxpath...estination/NavDestinationContent/Stack/Row/Stack/__Common__" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node37 -> Node37extra
+    Node38 [label="Row" style=filled color="orange"]
+    Node37 -> Node38
+    Node38extra [shape=ellipse label="extra\nxpath...nation/NavDestinationContent/Stack/Row/Stack/__Common__/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node38 -> Node38extra
+    Node39 [label="__Common__" style=filled color="orange"]
+    Node38 -> Node39
+    Node39extra [shape=ellipse label="extra\nxpath...estinationContent/Stack/Row/Stack/__Common__/Row/__Common__" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node39 -> Node39extra
+    Node40 [label="Column" style=filled color="orange"]
+    Node39 -> Node40
+    Node40extra [shape=ellipse label="extra\nxpath...ionContent/Stack/Row/Stack/__Common__/Row/__Common__/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node40 -> Node40extra
+    Node41 [label="Button" style=filled color="orange"]
+    Node40 -> Node41
+    Node41extra [shape=ellipse label="extra\nxpath...ent/Stack/Row/Stack/__Common__/Row/__Common__/Column/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node41 -> Node41extra
+    Node42 [label="Column" style=filled color="orange"]
+    Node41 -> Node42
+    Node42extra [shape=ellipse label="extra\nxpath...ck/Row/Stack/__Common__/Row/__Common__/Column/Button/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node42 -> Node42extra
+    Node43 [label="UIExtensionComponent" style=filled color="orange"]
+    Node42 -> Node43
+    Node43extra [shape=ellipse label="extra\nxpath...__/Row/__Common__/Column/Button/Column/UIExtensionComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node43 -> Node43extra
 }

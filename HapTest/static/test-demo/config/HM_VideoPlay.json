@@ -1,0 +1,6 @@
+{
+    "targetProjectName": "HM_VideoPlay",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/HM_VideoPlay",
+    "sdks": [{"name": "etsSdk", "path": "E:/OpenHarmony/SDK6/20/ets", "moduleName": ""}],
+    "options": {"enableLeadingComments": true}
+}

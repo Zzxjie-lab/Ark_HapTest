@@ -1,0 +1,40 @@
+你是一个非常智能的自动化开发助理。你需要完成一个文件下载和整理任务。请仔细阅读以下要求：
+
+任务目标：
+1. 下载 E:\OpenHarmony\HapTest\test_set.txt里10 个指定的 OpenHarmony 示例项目代码。
+2. 仅获取每个项目的子目录源代码，而不是整个仓库。
+3. 将每个项目整理到本地目录：
+   E:\OpenHarmony\Projects\<项目名>\
+   例如：OrangeShopping 的代码应在：
+   E:\OpenHarmony\Projects\OrangeShopping\
+
+已知信息：
+- 示例项目列表（仅列出 OrangeShopping，其他 9 个类似）：
+  - 项目名: OrangeShopping
+    Git 仓库: https://gitee.com/openharmony/applications_app_samples
+    仓库子目录: code/Solutions/Shopping/OrangeShopping
+    页面数量: 7
+    功能简述: 仿购物App，包含首页、商品详情页、全屏预览、直播页面、扫码页、设置页等
+- 目标目录：E:\OpenHarmony\Projects\
+
+任务要求：
+1. 自动处理 Windows 下 clone/下载路径长度问题。
+   - 可以只下载目标子目录，避免“Filename too long”错误。
+2. 检查目录是否已存在，避免重复下载。
+3. 每个项目下载完成后，确认可访问主要源文件（如 *.ets, *.ts）。
+4. 输出清单，列出每个项目最终路径和包含的主要文件。
+
+操作权限：
+- 可以在本地执行 git clone、sparse checkout、curl 或其他可行方法。
+- 可以创建目标目录并移动文件。
+
+输出要求：
+- 在完成后生成报告，说明：
+  1. 哪些项目下载成功，路径是多少
+  2. 哪些项目出现问题，并说明原因
+- 不需要编译或运行这些项目，任务仅限于下载与整理。
+
+自主空间：
+- 你可以选择最可靠的下载方式（git sparse checkout、zip 下载或 API 下载）。
+- 可以对文件夹结构做微调，但最终每个项目必须在：
+  E:\OpenHarmony\Projects\<项目名>\

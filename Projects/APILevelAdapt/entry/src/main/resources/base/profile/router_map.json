@@ -1,0 +1,44 @@
+{
+  "routerMap": [
+    {
+      "name": "ActionBarScene",
+      "pageSourceFile": "src/main/ets/pages/ActionBarScene.ets",
+      "buildFunction": "ActionBarSceneBuilder",
+      "data": {
+        "description": "this is ActionBarScene page."
+      }
+    },
+    {
+      "name": "ButtonDisplayScene",
+      "pageSourceFile": "src/main/ets/pages/ButtonDisplayScene.ets",
+      "buildFunction": "ButtonDisplaySceneBuilder",
+      "data": {
+        "description": "this is ButtonDisplayScene page."
+      }
+    },
+    {
+      "name": "ScrollScene",
+      "pageSourceFile": "src/main/ets/pages/ScrollScene.ets",
+      "buildFunction": "ScrollSceneBuilder",
+      "data": {
+        "description": "this is ScrollScene page."
+      }
+    },
+    {
+      "name": "MarqueeDisplayScene",
+      "pageSourceFile": "src/main/ets/pages/MarqueeDisplayScene.ets",
+      "buildFunction": "MarqueeDisplaySceneBuilder",
+      "data": {
+        "description": "this is MarqueeDisplayScene page."
+      }
+    },
+    {
+      "name": "AudioVolumeScene",
+      "pageSourceFile": "src/main/ets/pages/AudioVolumeScene.ets",
+      "buildFunction": "AudioVolumeSceneBuilder",
+      "data": {
+        "description": "this is AudioVolumeScene page."
+      }
+    }
+  ]
+}

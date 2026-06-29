@@ -1,0 +1,6 @@
+{
+    "targetProjectName": "avplayer-short-video",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/avplayer-short-video",
+    "sdks": [{"name": "etsSdk", "path": "E:/OpenHarmony/SDK6/20/ets", "moduleName": ""}],
+    "options": {"enableLeadingComments": true}
+}

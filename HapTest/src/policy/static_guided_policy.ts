@@ -56,8 +56,13 @@ export class StaticGuidedPolicy extends PTGPolicy {
             // 启动异步逻辑（只启动一次）
             this.eventFetching = true;
 
-            // 获取当前页面布局并保存到文件
-            this.dumpLayout()
+            // 唤醒点击: 确保动态UI控件（如视频播放器控制栏、轮播图等）处于可见状态
+            const driver = this.device.getDriver();
+            const center = { x: 654, y: 1460 };
+            driver.click(center.x, center.y)
+            .catch(() => {}) // 唤醒点击失败不影响主流程
+            .then(() => new Promise(r => setTimeout(r, 800))) // 等待UI稳定
+            .then(() => this.dumpLayout())
             .then(layout => {
                 try {
                     fs.writeFileSync(filePath, layout, "utf-8");
@@ -112,11 +117,12 @@ export class StaticGuidedPolicy extends PTGPolicy {
             })
             .finally(() => {
                 this.logger.info("dumpLayout finally");
-                fs.unlinkSync(filePath); // 删除布局文件
-                this.logger.info(`已删除布局文件: ${filePath}`);
-                // 恢复原始工作目录
-                process.chdir(this.originalCwd);
-                this.logger.info(`恢复到原始目录: ${this.originalCwd}`);
+                try { fs.unlinkSync(filePath); this.logger.info(`已删除布局文件: ${filePath}`); }
+                catch { /* 文件可能已被清理 */ }
+                try {
+                    process.chdir(this.originalCwd);
+                    this.logger.info(`恢复到原始目录: ${this.originalCwd}`);
+                } catch { /* 目录可能已切换 */ }
             });
         }
 

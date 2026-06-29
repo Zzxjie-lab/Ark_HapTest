@@ -1,0 +1,71 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="NavDestination"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create|title|backgroundColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="Scroll"]
+    Node1 -> Node2
+    Node2attributes [shape=ellipse label="property|Event
+create|scrollBar|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node3 [label="Column"]
+    Node2 -> Node3
+    Node3attributes [shape=ellipse label="property|Event
+create|backgroundColor|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="Image"]
+    Node3 -> Node4
+    Node4attributes [shape=ellipse label="property|Event
+create|width|height|aspectRatio|flexShrink" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Text"]
+    Node3 -> Node5
+    Node5attributes [shape=ellipse label="property|Event
+creat...ight|fontSize|lineHeight|fontColor|margin|opacity|textAlign" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="View"]
+    Node3 -> Node6
+    Node6attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6attributes
+    Node6signature [shape=ellipse label="signature
+@page...ttingitems/src/main/ets/components/ItemGroup.ets: ItemGroup" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6signature
+    Node6extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node8 [label="root"]
+    Node6 -> Node8
+    Node8extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="Column"]
+    Node8 -> Node9
+    Node9attributes [shape=ellipse label="property|Event
+create|width|borderRadius|backgroundColor|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="Builder"]
+    Node9 -> Node10
+    Node10signature [shape=ellipse label="signature
+@page...tems/src/main/ets/moreconnections/Nfc.ets: Nfc.%AM0$build()" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10signature
+    Node10extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+}

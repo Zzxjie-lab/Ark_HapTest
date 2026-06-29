@@ -1,0 +1,18 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="Canvas"]
+    Node0 -> Node1
+    Node1val [shape=ellipse label="StateValues
+ lyricMilliSecondsTime|mLrcEntryList|lyricScrollEffect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1val
+    Node1attributes [shape=ellipse label="property|Event
+create|onAreaChange" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/Stack/Row/Stack/Swiper/Column/Canvas" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+}

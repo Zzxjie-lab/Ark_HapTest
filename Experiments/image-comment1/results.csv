@@ -1,0 +1,3 @@
+project,policy,result_time,events,ptg_nodes,ptg_edges,screenshots,crashes,duration,cov_statement,cov_branch,cov_function,events_per_cov_pct,crashes_per_1000ev,uiability_count
+com.example.imagecomment,greedy_dfs,2026-06-28-12-37-12,69,11,19,71,1,840.3,69.3,35.7,46.4,1.0,14.49,2
+com.example.imagecomment,enhanced_guided,2026-06-28-12-53-25,34,4,3,35,1,729.9,96.5,57.1,68.2,0.35,29.41,1

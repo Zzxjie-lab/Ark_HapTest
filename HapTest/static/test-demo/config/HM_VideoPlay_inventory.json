@@ -1,0 +1,11 @@
+[
+  {"type": "XComponent", "callbacks": ["onLoad"]},
+  {"type": "Image", "callbacks": ["onClick"]},
+  {"type": "Button", "callbacks": ["onClick"]},
+  {"type": "Slider", "callbacks": ["onChange"]},
+  {"type": "Text", "callbacks": ["onClick"]},
+  {"type": "List", "callbacks": ["onScroll"]},
+  {"type": "Stack", "callbacks": ["onClick"]},
+  {"type": "Column", "callbacks": ["onClick", "onTouch"]},
+  {"type": "Row", "callbacks": ["onClick"]}
+]

@@ -1,0 +1,9 @@
+[
+  {"type": "Text", "callbacks": ["onClick"]},
+  {"type": "Button", "callbacks": ["onClick"]},
+  {"type": "Image", "callbacks": ["onClick"]},
+  {"type": "TextInput", "callbacks": ["onChange"]},
+  {"type": "List", "callbacks": ["onScroll"]},
+  {"type": "Column", "callbacks": ["onClick"]},
+  {"type": "Row", "callbacks": ["onClick"]}
+]

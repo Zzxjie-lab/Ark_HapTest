@@ -1,0 +1,6 @@
+{
+    "targetProjectName": "page_settings",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/page_settings",
+    "sdks": [{"name": "etsSdk", "path": "E:/OpenHarmony/SDK6/20/ets", "moduleName": ""}],
+    "options": {"enableLeadingComments": true}
+}

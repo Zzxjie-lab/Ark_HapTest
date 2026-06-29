@@ -1,0 +1,207 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="Stack"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="View"]
+    Node1 -> Node2
+    Node2val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2val
+    Node2attributes [shape=ellipse label="property|Event
+create|height|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2signature [shape=ellipse label="signature
+@avpl...o/entry/src/main/ets/component/VideoPlayer.ets: VideoPlayer" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2signature
+    Node2extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node4 [label="root"]
+    Node2 -> Node4
+    Node4extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Column"]
+    Node4 -> Node5
+    Node5val [shape=ellipse label="StateValues
+ percent|surfaceW|surfaceH" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5val
+    Node5attributes [shape=ellipse label="property|Event
+create|backgroundColor|height|width|position|onSizeChange" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/Stack/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="Stack"]
+    Node5 -> Node6
+    Node6val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6val
+    Node6attributes [shape=ellipse label="property|Event
+create|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6attributes
+    Node6extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Column"]
+    Node6 -> Node7
+    Node7attributes [shape=ellipse label="property|Event
+create|height|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="If"]
+    Node6 -> Node8
+    Node8val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8val
+    Node8attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8attributes
+    Node8extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="IfBranch"]
+    Node8 -> Node9
+    Node9attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="Image"]
+    Node9 -> Node10
+    Node10attributes [shape=ellipse label="property|Event
+create|size" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10attributes
+    Node10extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node11 [label="Text"]
+    Node6 -> Node11
+    Node11val [shape=ellipse label="StateValues
+ surfaceH|surfaceW" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11val
+    Node11attributes [shape=ellipse label="property|Event
+create|height|width|backgroundColor|opacity|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11attributes
+    Node11extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node12 [label="Row"]
+    Node6 -> Node12
+    Node12attributes [shape=ellipse label="property|Event
+create|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node12 -> Node12attributes
+    Node12extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="Text"]
+    Node12 -> Node13
+    Node13val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13val
+    Node13attributes [shape=ellipse label="property|Event
+create|id|fontSize|opacity|fontColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13attributes
+    Node13extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="Text"]
+    Node12 -> Node14
+    Node14val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14val
+    Node14attributes [shape=ellipse label="property|Event
+create|id|fontSize|opacity|fontColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="RelativeContainer"]
+    Node6 -> Node15
+    Node15attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15attributes
+    Node15extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node16 [label="Column"]
+    Node15 -> Node16
+    Node16attributes [shape=ellipse label="property|Event
+create|alignRules|margin|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node16 -> Node16attributes
+    Node16extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/RelativeContainer/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node16 -> Node16extra
+    Node17 [label="Image"]
+    Node16 -> Node17
+    Node17attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node17 -> Node17attributes
+    Node17extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/RelativeContainer/Column/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="Image"]
+    Node16 -> Node18
+    Node18attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18attributes
+    Node18extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/RelativeContainer/Column/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="Column"]
+    Node6 -> Node19
+    Node19attributes [shape=ellipse label="property|Event
+create|height|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19attributes
+    Node19extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node20 [label="Blank"]
+    Node19 -> Node20
+    Node20attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node20 -> Node20attributes
+    Node20extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node20 -> Node20extra
+    Node21 [label="Column"]
+    Node19 -> Node21
+    Node21val [shape=ellipse label="StateValues
+ toolBarBottomMargin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node21 -> Node21val
+    Node21attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node21 -> Node21attributes
+    Node21extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node21 -> Node21extra
+    Node22 [label="Stack"]
+    Node21 -> Node22
+    Node22attributes [shape=ellipse label="property|Event
+create|margin|zIndex|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node22 -> Node22attributes
+    Node22extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column/Column/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node22 -> Node22extra
+    Node23 [label="Text"]
+    Node22 -> Node23
+    Node23val [shape=ellipse label="StateValues
+ avPlayerController" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node23 -> Node23val
+    Node23attributes [shape=ellipse label="property|Event
+create|fontColor|fontSize|fontFamily" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node23 -> Node23attributes
+    Node23extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column/Column/Stack/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node23 -> Node23extra
+    Node24 [label="BuilderParam"]
+    Node21 -> Node24
+    Node24extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node24 -> Node24extra
+    Node25 [label="Button"]
+    Node6 -> Node25
+    Node25attributes [shape=ellipse label="property|Event
+create|width|height|backgroundColor|position|onClick|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node25 -> Node25attributes
+    Node25extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node25 -> Node25extra
+    Node26 [label="Image"]
+    Node25 -> Node26
+    Node26attributes [shape=ellipse label="property|Event
+create|fillColor|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node26 -> Node26attributes
+    Node26extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Stack/Button/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node26 -> Node26extra
+}

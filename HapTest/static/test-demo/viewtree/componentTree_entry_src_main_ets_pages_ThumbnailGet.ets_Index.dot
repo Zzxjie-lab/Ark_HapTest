@@ -1,0 +1,187 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="Row"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="Column"]
+    Node1 -> Node2
+    Node2attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2extra [shape=ellipse label="extra\nxpath: root/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node3 [label="Button"]
+    Node2 -> Node3
+    Node3val [shape=ellipse label="StateValues
+ diffTime|pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3val
+    Node3attributes [shape=ellipse label="property|Event
+create|id|type|backgroundColor|width|height|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/Row/Column/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="Text"]
+    Node3 -> Node4
+    Node4attributes [shape=ellipse label="property|Event
+create|fontSize|fontWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4extra [shape=ellipse label="extra\nxpath: root/Row/Column/Button/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Row"]
+    Node2 -> Node5
+    Node5attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="Image"]
+    Node5 -> Node6
+    Node6val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6val
+    Node6attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6attributes
+    Node6extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Image"]
+    Node5 -> Node7
+    Node7val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7val
+    Node7attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="Image"]
+    Node5 -> Node8
+    Node8val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8val
+    Node8attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8attributes
+    Node8extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="Row"]
+    Node2 -> Node9
+    Node9attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="Text"]
+    Node9 -> Node10
+    Node10val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10val
+    Node10attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10attributes
+    Node10extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node11 [label="Text"]
+    Node9 -> Node11
+    Node11val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11val
+    Node11attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11attributes
+    Node11extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node12 [label="Text"]
+    Node9 -> Node12
+    Node12val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node12 -> Node12val
+    Node12attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node12 -> Node12attributes
+    Node12extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="Row"]
+    Node2 -> Node13
+    Node13attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13attributes
+    Node13extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="Image"]
+    Node13 -> Node14
+    Node14val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14val
+    Node14attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="Image"]
+    Node13 -> Node15
+    Node15val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15val
+    Node15attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15attributes
+    Node15extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node16 [label="Image"]
+    Node13 -> Node16
+    Node16val [shape=ellipse label="StateValues
+ pixelMap" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node16 -> Node16val
+    Node16attributes [shape=ellipse label="property|Event
+create|width|height|objectFit|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node16 -> Node16attributes
+    Node16extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node16 -> Node16extra
+    Node17 [label="Row"]
+    Node2 -> Node17
+    Node17attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node17 -> Node17attributes
+    Node17extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="Text"]
+    Node17 -> Node18
+    Node18val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18val
+    Node18attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18attributes
+    Node18extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="Text"]
+    Node17 -> Node19
+    Node19val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19val
+    Node19attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19attributes
+    Node19extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node20 [label="Text"]
+    Node17 -> Node20
+    Node20val [shape=ellipse label="StateValues
+ diffTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node20 -> Node20val
+    Node20attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node20 -> Node20attributes
+    Node20extra [shape=ellipse label="extra\nxpath: root/Row/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node20 -> Node20extra
+}

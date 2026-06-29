@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "APILevelAdapt"
+    },
+    {
+      "name": "action_bar_scene",
+      "value": "Action Bar Scene"
+    },
+    {
+      "name": "button_display_scene",
+      "value": "Button Display Scene"
+    },
+    {
+      "name": "scroll_scene",
+      "value": "Scroll Scene"
+    },
+    {
+      "name": "marquee_display_scene",
+      "value": "Marquee Display Scene"
+    },
+    {
+      "name": "audio_volume_scene",
+      "value": "Audio Volume Scene"
+    },
+    {
+      "name": "index_label",
+      "value": "Multi-API Version Compatibility Sample"
+    },
+    {
+      "name": "audio_volume_button_label",
+      "value": "Check volume manager support"
+    },
+    {
+      "name": "support_label",
+      "value": "Supported"
+    },
+    {
+      "name": "unsupport_label",
+      "value": "Not Supported"
+    },
+    {
+      "name": "fling_prompt_dialog_tip",
+      "value": "Inertial scrolling..."
+    },
+    {
+      "name": "scroll_to_top_tip",
+      "value": "Scrolled to the top of the list!"
+    },
+    {
+      "name": "scroll_to_bottom_tip",
+      "value": "Scrolled to the bottom of the list!"
+    },
+    {
+      "name": "zoom_start_trigger_tip",
+      "value": "Zoom gesture started!"
+    },
+    {
+      "name": "zoom_stop_trigger_tip",
+      "value": "Zoom gesture ended!"
+    }
+  ]
+}

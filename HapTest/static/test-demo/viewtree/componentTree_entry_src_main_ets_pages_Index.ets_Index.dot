@@ -5,21 +5,411 @@ digraph G {
     Node0 [label="root"]
     Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node0 -> Node0extra
-    Node1 [label="RelativeContainer"]
+    Node1 [label="Stack"]
     Node0 -> Node1
+    Node1val [shape=ellipse label="StateValues
+ isClickScreen" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1val
     Node1attributes [shape=ellipse label="property|Event
-create|height|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+create|onClick|backgroundColor|height|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
     Node1 -> Node1attributes
-    Node1extra [shape=ellipse label="extra\nxpath: root/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node1 -> Node1extra
-    Node2 [label="Text"]
+    Node2 [label="Column"]
     Node1 -> Node2
-    Node2val [shape=ellipse label="StateValues
- message" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
-    Node2 -> Node2val
     Node2attributes [shape=ellipse label="property|Event
-create|id|fontSize|fontWeight|alignRules|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+create|align|margin|id|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
     Node2 -> Node2attributes
-    Node2extra [shape=ellipse label="extra\nxpath: root/RelativeContainer/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2extra [shape=ellipse label="extra\nxpath: root/Stack/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
     Node2 -> Node2extra
+    Node3 [label="Text"]
+    Node1 -> Node3
+    Node3val [shape=ellipse label="StateValues
+ surfaceH|surfaceW" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3val
+    Node3attributes [shape=ellipse label="property|Event
+create|height|width|margin|backgroundColor|opacity|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/Stack/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="View"]
+    Node1 -> Node4
+    Node4attributes [shape=ellipse label="property|Event
+create|zIndex" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4signature [shape=ellipse label="signature
+@HM_V...ay/entry/src/main/ets/components/VideoPanel.ets: VideoPanel" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4signature
+    Node4extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node6 [label="root"]
+    Node4 -> Node6
+    Node6extra [shape=ellipse label="extra\nxpath: root/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Panel"]
+    Node6 -> Node7
+    Node7val [shape=ellipse label="StateValues
+ show" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7val
+    Node7attributes [shape=ellipse label="property|Event
+creat...|backgroundColor|type|mode|dragBar|halfHeight|width|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/Stack/Panel" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="Column"]
+    Node7 -> Node8
+    Node8attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8attributes
+    Node8extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="RelativeContainer"]
+    Node8 -> Node9
+    Node9attributes [shape=ellipse label="property|Event
+create|height|width|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/RelativeContainer" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="Text"]
+    Node9 -> Node10
+    Node10val [shape=ellipse label="StateValues
+ videoList|videoSelect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10val
+    Node10attributes [shape=ellipse label="property|Event
+create|fontColor|fontSize|fontWeight|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10attributes
+    Node10extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/RelativeContainer/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node11 [label="Image"]
+    Node9 -> Node11
+    Node11attributes [shape=ellipse label="property|Event
+create|width|height|alignRules|id" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11attributes
+    Node11extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/RelativeContainer/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node12 [label="List"]
+    Node8 -> Node12
+    Node12attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node12 -> Node12attributes
+    Node12extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="ForEach"]
+    Node12 -> Node13
+    Node13val [shape=ellipse label="StateValues
+ videoList" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13val
+    Node13attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13attributes
+    Node13extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="ListItem"]
+    Node13 -> Node14
+    Node14val [shape=ellipse label="StateValues
+ videoSelect|videoList|show|avPlayManage" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14val
+    Node14attributes [shape=ellipse label="property|Event
+create|backgroundColor|width|height|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="Column"]
+    Node14 -> Node15
+    Node15attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15attributes
+    Node15extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node16 [label="Row"]
+    Node15 -> Node16
+    Node16attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node16 -> Node16attributes
+    Node16extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node16 -> Node16extra
+    Node17 [label="Text"]
+    Node16 -> Node17
+    Node17attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|textAlign" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node17 -> Node17attributes
+    Node17extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="Blank"]
+    Node16 -> Node18
+    Node18attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18attributes
+    Node18extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="If"]
+    Node16 -> Node19
+    Node19val [shape=ellipse label="StateValues
+ videoSelect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19val
+    Node19attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19attributes
+    Node19extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node20 [label="IfBranch"]
+    Node19 -> Node20
+    Node20attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node20 -> Node20attributes
+    Node20extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node20 -> Node20extra
+    Node21 [label="Text"]
+    Node20 -> Node21
+    Node21attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|opacity|fontWeight|textAlign" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node21 -> Node21attributes
+    Node21extra [shape=ellipse label="extra\nxpath: root/Stack/Panel/Column/List/ListItem/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node21 -> Node21extra
+    Node22 [label="Row"]
+    Node1 -> Node22
+    Node22attributes [shape=ellipse label="property|Event
+create|margin|visibility" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node22 -> Node22attributes
+    Node22extra [shape=ellipse label="extra\nxpath: root/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node22 -> Node22extra
+    Node23 [label="Text"]
+    Node22 -> Node23
+    Node23val [shape=ellipse label="StateValues
+ currentTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node23 -> Node23val
+    Node23attributes [shape=ellipse label="property|Event
+create|fontSize|opacity|fontColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node23 -> Node23attributes
+    Node23extra [shape=ellipse label="extra\nxpath: root/Stack/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node23 -> Node23extra
+    Node24 [label="Text"]
+    Node22 -> Node24
+    Node24val [shape=ellipse label="StateValues
+ durationTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node24 -> Node24val
+    Node24attributes [shape=ellipse label="property|Event
+create|fontSize|opacity|fontColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node24 -> Node24attributes
+    Node24extra [shape=ellipse label="extra\nxpath: root/Stack/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node24 -> Node24extra
+    Node25 [label="Column"]
+    Node1 -> Node25
+    Node25val [shape=ellipse label="StateValues
+ isClickScreen" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node25 -> Node25val
+    Node25attributes [shape=ellipse label="property|Event
+create|onTouch|visibility|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node25 -> Node25attributes
+    Node25extra [shape=ellipse label="extra\nxpath: root/Stack/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node25 -> Node25extra
+    Node26 [label="Row"]
+    Node25 -> Node26
+    Node26attributes [shape=ellipse label="property|Event
+create|width|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node26 -> Node26attributes
+    Node26extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node26 -> Node26extra
+    Node27 [label="View"]
+    Node26 -> Node27
+    Node27attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node27 -> Node27attributes
+    Node27signature [shape=ellipse label="signature
+@HM_V...Play/entry/src/main/ets/components/ExitVideo.ets: ExitVideo" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node27 -> Node27signature
+    Node27extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node27 -> Node27extra
+    Node29 [label="root"]
+    Node27 -> Node29
+    Node29extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node29 -> Node29extra
+    Node30 [label="Row"]
+    Node29 -> Node30
+    Node30attributes [shape=ellipse label="property|Event
+create|margin|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node30 -> Node30attributes
+    Node30extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node30 -> Node30extra
+    Node31 [label="Image"]
+    Node30 -> Node31
+    Node31attributes [shape=ellipse label="property|Event
+create|id|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node31 -> Node31attributes
+    Node31extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node31 -> Node31extra
+    Node32 [label="Text"]
+    Node30 -> Node32
+    Node32val [shape=ellipse label="StateValues
+ videoName" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node32 -> Node32val
+    Node32attributes [shape=ellipse label="property|Event
+create|fontColor|fontWeight|fontSize|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node32 -> Node32attributes
+    Node32extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Row/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node32 -> Node32extra
+    Node33 [label="Text"]
+    Node25 -> Node33
+    Node33attributes [shape=ellipse label="property|Event
+create|fontSize|fontStyle|fontColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node33 -> Node33attributes
+    Node33extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node33 -> Node33extra
+    Node34 [label="Blank"]
+    Node25 -> Node34
+    Node34attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node34 -> Node34attributes
+    Node34extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node34 -> Node34extra
+    Node35 [label="Column"]
+    Node25 -> Node35
+    Node35attributes [shape=ellipse label="property|Event
+create|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node35 -> Node35attributes
+    Node35extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node35 -> Node35extra
+    Node36 [label="View"]
+    Node35 -> Node36
+    Node36val [shape=ellipse label="StateValues
+ flag|...layManage|currentTime|durationTime|isSwiping|XComponentFlag" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node36 -> Node36val
+    Node36attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node36 -> Node36attributes
+    Node36signature [shape=ellipse label="signature
+@HM_V...ntry/src/main/ets/components/VideoOperate.ets: VideoOperate" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node36 -> Node36signature
+    Node36extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node36 -> Node36extra
+    Node38 [label="root"]
+    Node36 -> Node38
+    Node38extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node38 -> Node38extra
+    Node39 [label="Row"]
+    Node38 -> Node39
+    Node39attributes [shape=ellipse label="property|Event
+create|justifyContent|padding|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node39 -> Node39attributes
+    Node39extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node39 -> Node39extra
+    Node40 [label="Row"]
+    Node39 -> Node40
+    Node40attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node40 -> Node40attributes
+    Node40extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node40 -> Node40extra
+    Node41 [label="Image"]
+    Node40 -> Node41
+    Node41val [shape=ellipse label="StateValues
+ flag|avPlayManage" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node41 -> Node41val
+    Node41attributes [shape=ellipse label="property|Event
+create|id|width|height|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node41 -> Node41attributes
+    Node41extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node41 -> Node41extra
+    Node42 [label="Text"]
+    Node40 -> Node42
+    Node42val [shape=ellipse label="StateValues
+ currentTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node42 -> Node42val
+    Node42attributes [shape=ellipse label="property|Event
+create|fontColor|textAlign|fontWeight|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node42 -> Node42attributes
+    Node42extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node42 -> Node42extra
+    Node43 [label="Row"]
+    Node39 -> Node43
+    Node43attributes [shape=ellipse label="property|Event
+create|layoutWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node43 -> Node43attributes
+    Node43extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node43 -> Node43extra
+    Node44 [label="Slider"]
+    Node43 -> Node44
+    Node44val [shape=ellipse label="StateValues
+ currentTime|durationTime|seekTime|avPlayManage" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node44 -> Node44val
+    Node44attributes [shape=ellipse label="property|Event
+create|id|blockColor|trackColor|selectedColor|showTips|onChange" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node44 -> Node44attributes
+    Node44extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row/Slider" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node44 -> Node44extra
+    Node45 [label="Row"]
+    Node39 -> Node45
+    Node45attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node45 -> Node45attributes
+    Node45extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node45 -> Node45extra
+    Node46 [label="Text"]
+    Node45 -> Node46
+    Node46val [shape=ellipse label="StateValues
+ durationTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node46 -> Node46val
+    Node46attributes [shape=ellipse label="property|Event
+create|fontColor|fontWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node46 -> Node46attributes
+    Node46extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node46 -> Node46extra
+    Node47 [label="Button"]
+    Node45 -> Node47
+    Node47val [shape=ellipse label="StateValues
+ speedName|speedIndex|speedSelect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node47 -> Node47val
+    Node47attributes [shape=ellipse label="property|Event
+creat...rRadius|fontColor|backgroundColor|opacity|margin|id|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node47 -> Node47attributes
+    Node47extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Row/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node47 -> Node47extra
+    Node48 [label="Row"]
+    Node35 -> Node48
+    Node48val [shape=ellipse label="StateValues
+ show|videoIndex|videoSelect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node48 -> Node48val
+    Node48attributes [shape=ellipse label="property|Event
+creat...idth|height|backgroundColor|borderRadius|alignItems|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node48 -> Node48attributes
+    Node48extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node48 -> Node48extra
+    Node49 [label="Image"]
+    Node48 -> Node49
+    Node49attributes [shape=ellipse label="property|Event
+create|width|height|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node49 -> Node49attributes
+    Node49extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node49 -> Node49extra
+    Node50 [label="Text"]
+    Node48 -> Node50
+    Node50val [shape=ellipse label="StateValues
+ videoName" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node50 -> Node50val
+    Node50attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node50 -> Node50attributes
+    Node50extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node50 -> Node50extra
+    Node51 [label="Blank"]
+    Node48 -> Node51
+    Node51attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node51 -> Node51attributes
+    Node51extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node51 -> Node51extra
+    Node52 [label="Column"]
+    Node48 -> Node52
+    Node52attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node52 -> Node52attributes
+    Node52extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node52 -> Node52extra
+    Node53 [label="Image"]
+    Node52 -> Node53
+    Node53attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node53 -> Node53attributes
+    Node53extra [shape=ellipse label="extra\nxpath: root/Stack/Column/Column/Row/Column/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node53 -> Node53extra
 }

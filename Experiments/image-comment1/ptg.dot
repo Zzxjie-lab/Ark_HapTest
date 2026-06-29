@@ -1,0 +1,25 @@
+digraph "PTG" {
+  edge [
+    color = "pink";
+  ];
+  node [
+    fontname = "Helvetica,Arial,sans-serif";
+    fontsize = 12;
+    width = 4;
+    color = "#8383cc";
+    fixedsize = true;
+  ];
+  "30xftTOL104xOgTtxwM2OqE9sJo" [
+    label = "30xftTOL104xOgTtxwM2OqE9sJo\n";
+    URL = "http://localhost:3001/node/30xftTOL104xOgTtxwM2OqE9sJo";
+    image = "undefined";
+  ];
+  "00JOsZJLv403hn2Y0J32_UTnmR4" [
+    label = "00JOsZJLv403hn2Y0J32_UTnmR4\n";
+    URL = "http://localhost:3001/node/00JOsZJLv403hn2Y0J32_UTnmR4";
+    image = "E:\OpenHarmony\HapTest\out_ic_eg\2026-06-28-11-48-50\temp\screenCap_9108010523.png";
+  ];
+  "30xftTOL104xOgTtxwM2OqE9sJo" -> "00JOsZJLv403hn2Y0J32_UTnmR4" [
+    URL = "http://localhost:3001/edge/30xftTOL104xOgTtxwM2OqE9sJo/00JOsZJLv403hn2Y0J32_UTnmR4";
+  ];
+}

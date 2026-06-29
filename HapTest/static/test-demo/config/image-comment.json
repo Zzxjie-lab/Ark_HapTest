@@ -1,0 +1,6 @@
+{
+    "targetProjectName": "image-comment",
+    "targetProjectDirectory": "E:/OpenHarmony/Projects/image-comment",
+    "sdks": [{"name": "etsSdk", "path": "E:/OpenHarmony/SDK6/20/ets", "moduleName": ""}],
+    "options": {"enableLeadingComments": true}
+}

@@ -1,0 +1,46 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="Row"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="Column"]
+    Node1 -> Node2
+    Node2attributes [shape=ellipse label="property|Event
+create|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2extra [shape=ellipse label="extra\nxpath: root/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node3 [label="Text"]
+    Node2 -> Node3
+    Node3val [shape=ellipse label="StateValues
+ message" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3val
+    Node3attributes [shape=ellipse label="property|Event
+create|fontSize|fontWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/Row/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="Button"]
+    Node2 -> Node4
+    Node4attributes [shape=ellipse label="property|Event
+create|type|margin|backgroundColor|width|height|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4extra [shape=ellipse label="extra\nxpath: root/Row/Column/Button" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Text"]
+    Node4 -> Node5
+    Node5attributes [shape=ellipse label="property|Event
+create|fontSize|fontWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/Row/Column/Button/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+}

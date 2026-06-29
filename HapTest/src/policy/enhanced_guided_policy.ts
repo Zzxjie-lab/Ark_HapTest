@@ -2,6 +2,8 @@ import path from "path";
 import * as fs from "fs";
 import { Device } from "../device/device";
 import { Event } from "../event/event";
+import { KeyEvent } from "../event/key_event";
+import { UIEvent } from "../event/ui_event";
 import { Hap } from "../model/hap";
 import { PolicyName } from "./policy";
 import { StaticGuidedPolicy } from "./static_guided_policy";
@@ -39,6 +41,18 @@ export class EnhancedGuidedPolicy extends StaticGuidedPolicy {
     private currentPageId: string = "";
     private staticInventory: Array<{ type: string; callbacks: string[] }> = [];
 
+    // 模板去重: 追踪每种 (componentType, callback) 已被选中的次数
+    private templateSelectCount: Map<string, number> = new Map();
+    private static readonly MAX_TEMPLATE_SELECTS = 4;
+    // 终止操作检测: 已知的终止性组件 id/key 模式
+    private static readonly TERMINAL_PATTERNS = ['exit', 'quit', 'terminate', 'close', 'back'];
+
+    // 新颖性驱动: 追踪已被点击的组件位置签名 (type + 100px 分桶坐标)
+    private clickedComponentSigs: Set<string> = new Set();
+    // PTG 停滞检测: 连续选中惩罚候选的次数
+    private stagnationCount: number = 0;
+    private static readonly MAX_STAGNATION = 6;
+
     constructor(device: Device, hap: Hap, name: PolicyName, config?: string) {
         super(device, hap, name, config || "");
         this.hasConfig = !!config;
@@ -71,9 +85,14 @@ export class EnhancedGuidedPolicy extends StaticGuidedPolicy {
     // -----------------------------------------------------------------------
 
     generateEventBasedOnPtg(): Event {
-        // 骨架模式 — 无 ArkAnalyzer 配置时降级
+        // 骨架模式 — 无 ArkAnalyzer 配置时, 优先运行时组件, 否则随机
         if (!this.hasConfig) {
-            this.logger.info("[EnhancedGuided] 骨架模式 — 随机事件");
+            const runtimeEvent = this.generateEventByTypeMatching();
+            if (runtimeEvent) {
+                this.logger.info("[EnhancedGuided][skeleton] 运行时能力引导成功");
+                return runtimeEvent;
+            }
+            this.logger.info("[EnhancedGuided][skeleton] 随机事件兜底");
             return EventBuilder.createRandomTouchEvent(this.device);
         }
 
@@ -154,6 +173,30 @@ export class EnhancedGuidedPolicy extends StaticGuidedPolicy {
 
         const cb: string = (node.call_back_method || "").toLowerCase();
 
+        // 终止操作检测: 组件 id/key 匹配已知终止模式 → 极低优先级
+        const nodeId = ((node.id || node.key || "") as string).toLowerCase();
+        if (nodeId.length > 0 && EnhancedGuidedPolicy.TERMINAL_PATTERNS.some(p => nodeId.includes(p))) {
+            return 900;
+        }
+        // 启发式检测: 左上角无 id 的可点击 Row/Image (常见退出按钮)
+        if (!nodeId && (cb.includes("onclick") || cb.includes("ontouch"))) {
+            const bounds = node.bounds;
+            if (bounds && Array.isArray(bounds) && bounds.length === 2) {
+                const top = bounds[0]?.y || 0;
+                const left = bounds[0]?.x || 0;
+                if (top < 300 && left < 200) {
+                    return 800;
+                }
+            }
+        }
+
+        // 模板去重惩罚: 同一 (type, callback) 已被选中多次 → 降级
+        const templateSig = `${node.type || "unknown"}_${cb}`;
+        const selectedCount = this.templateSelectCount.get(templateSig) || 0;
+        if (selectedCount >= EnhancedGuidedPolicy.MAX_TEMPLATE_SELECTS) {
+            return 500 + selectedCount; // 大幅降级，随次数递增
+        }
+
         if (cb.includes("onclick") || cb.includes("ontouch")) return 1;
         if (cb.includes("onlongclick")) return 2;
         if (cb.includes("onscroll") || cb.includes("onchange") || cb.includes("onsubmit")) return 3;
@@ -173,41 +216,118 @@ export class EnhancedGuidedPolicy extends StaticGuidedPolicy {
         const bestPriority = candidates[0].priority;
         const topGroup = candidates.filter((c) => c.priority === bestPriority);
 
+        // 新颖性驱动: 同优先级内，优先选择从未点击过的位置
+        const freshGroup = topGroup.filter((c) => {
+            const sig = this.componentPosSig(c.node);
+            return !this.clickedComponentSigs.has(sig);
+        });
+        const effectiveGroup = freshGroup.length > 0 ? freshGroup : topGroup;
+
         // 同优先级内随机打乱，均衡探索
-        const idx = RandomUtils.genRandomNum(0, topGroup.length - 1);
-        return topGroup[idx];
+        const idx = RandomUtils.genRandomNum(0, effectiveGroup.length - 1);
+        const selected = effectiveGroup[idx];
+
+        // 记录点击位置
+        if (selected.node) {
+            this.clickedComponentSigs.add(this.componentPosSig(selected.node));
+        }
+
+        // 模板去重: 记录本次选中的 (type, callback) 签名
+        if (selected.node) {
+            const cb = (selected.node.call_back_method || "").toLowerCase();
+            const sig = `${selected.node.type || "unknown"}_${cb}`;
+            this.templateSelectCount.set(sig, (this.templateSelectCount.get(sig) || 0) + 1);
+        }
+
+        // PTG 停滞检测: 当选中了被惩罚的候选（priority>=500），累加停滞计数
+        if (selected.priority >= 500) {
+            this.stagnationCount++;
+            if (this.stagnationCount >= EnhancedGuidedPolicy.MAX_STAGNATION) {
+                this.logger.warn(
+                    `[EnhancedGuided] PTG 停滞: 连续 ${this.stagnationCount} 次选中惩罚候选，` +
+                    `重置探索状态 (模板去重+点击记录已清空)`
+                );
+                this.templateSelectCount.clear();
+                this.clickedComponentSigs.clear();
+                this.stagnationCount = 0;
+            }
+        } else {
+            this.stagnationCount = 0; // 选中了正常候选，重置停滞计数
+        }
+
+        return selected;
+    }
+
+    /** 生成组件位置签名: type + 100px分桶坐标，用于新颖性去重 */
+    private componentPosSig(node: any): string {
+        const t = node.type || "?";
+        const bounds = node.bounds;
+        if (bounds && Array.isArray(bounds) && bounds.length === 2) {
+            const bx = Math.round((bounds[0]?.x || 0) / 100) * 100;
+            const by = Math.round((bounds[0]?.y || 0) / 100) * 100;
+            return `${t}_${bx}_${by}`;
+        }
+        return `${t}_?_?`;
     }
 
     // -----------------------------------------------------------------------
     // 类型匹配降级: 运行时组件按 type 匹配静态回调清单
+    // 多层兜底: 静态清单精确匹配 → 运行时能力推断 → 跳过
     // -----------------------------------------------------------------------
 
     private generateEventByTypeMatching(): Event | undefined {
         if (this.staticInventory.length === 0) {
-            this.logger.warn("[EnhancedGuided] 无静态回调清单，无法降级");
-            return undefined;
+            this.logger.warn("[EnhancedGuided] 无静态回调清单, 启用纯运行时兜底");
         }
 
         const components = this.currentPage?.getComponents() || [];
         const candidates: PrioritizedEvent[] = [];
+        let staticHits = 0;
+        let runtimeFallbacks = 0;
 
         for (const comp of components) {
             if (!comp.hasUIEvent()) continue;
-            const event = EventBuilder.createEventFromInventory(comp, this.staticInventory);
+
+            // 第 1 层: 尝试静态清单精确匹配
+            let event: UIEvent | KeyEvent | undefined = undefined;
+            let source = "static";
+
+            if (this.staticInventory.length > 0) {
+                event = EventBuilder.createEventFromInventory(comp, this.staticInventory);
+            }
+
+            // 第 2 层: 静态清单不匹配 → 运行时能力兜底
+            if (!event) {
+                event = EventBuilder.createEventFromRuntimeComponent(comp);
+                source = "runtime";
+            }
+
             if (!event) continue;
+
+            if (source === "static") staticHits++;
+            else runtimeFallbacks++;
 
             const priority = this.rankPriorityByComponent(comp);
             candidates.push({
                 event,
                 priority,
-                node: { call_back_method: comp.type || "unknown" },
+                node: {
+                    call_back_method: `${comp.type || "unknown"}(${source})`,
+                    type: comp.type,
+                    bounds: comp.bounds,
+                },
             });
         }
 
         if (candidates.length === 0) {
-            this.logger.warn("[EnhancedGuided] 类型匹配无可用事件");
+            this.logger.warn("[EnhancedGuided] 类型匹配无可用事件 (含运行时兜底)");
             return undefined;
         }
+
+        this.logger.info(
+            `[EnhancedGuided] 类型匹配 staticHits=${staticHits} runtimeFallbacks=${runtimeFallbacks} ` +
+            `totalCandidates=${candidates.length}`,
+        );
 
         const selected = this.selectBest(candidates);
         this.logger.info(
@@ -217,15 +337,25 @@ export class EnhancedGuidedPolicy extends StaticGuidedPolicy {
         return selected.event;
     }
 
-    /** 根据运行时组件能力评估优先级 */
+    /** 根据运行时组件能力评估优先级，含模板去重 */
     private rankPriorityByComponent(comp: Component): number {
-        // 可输入组件（TextInput 等）
+        // 模板去重惩罚
+        const cb = comp.clickable ? "onclick" : (comp.longClickable ? "onlongclick" : "unknown");
+        const templateSig = `${comp.type}_${cb}`;
+        const selectedCount = this.templateSelectCount.get(templateSig) || 0;
+        if (selectedCount >= EnhancedGuidedPolicy.MAX_TEMPLATE_SELECTS) {
+            return 500 + selectedCount;
+        }
+        // 终止操作启发式: 左上角无 id 的可点击组件
+        if (comp.clickable && !comp.id && !comp.key && comp.bounds?.length) {
+            const b = comp.bounds[0];
+            if (b.y < 300 && b.x < 200) {
+                return 800;
+            }
+        }
         if (comp.inputable) return 3;
-        // 可滚动组件（List, Scroll 等）
         if (comp.scrollable) return 3;
-        // 可长按组件
         if (comp.longClickable) return 2;
-        // 可点击组件（最通用）
         if (comp.clickable || comp.checkable) return 1;
         return 4;
     }

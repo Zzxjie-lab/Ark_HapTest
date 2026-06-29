@@ -1,0 +1,136 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="NavDestination"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create|title|backgroundColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="Scroll"]
+    Node1 -> Node2
+    Node2attributes [shape=ellipse label="property|Event
+create|scrollBar|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node3 [label="Column"]
+    Node2 -> Node3
+    Node3attributes [shape=ellipse label="property|Event
+create|backgroundColor|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node3 -> Node3attributes
+    Node3extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node3 -> Node3extra
+    Node4 [label="View"]
+    Node3 -> Node4
+    Node4attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4attributes
+    Node4signature [shape=ellipse label="signature
+@page...ttingitems/src/main/ets/components/ItemGroup.ets: ItemGroup" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node4 -> Node4signature
+    Node4extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node6 [label="root"]
+    Node4 -> Node6
+    Node6extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Column"]
+    Node6 -> Node7
+    Node7attributes [shape=ellipse label="property|Event
+create|width|borderRadius|backgroundColor|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="Builder"]
+    Node7 -> Node8
+    Node8signature [shape=ellipse label="signature
+@page.../ets/wlan/WlanMoreSetting.ets: WlanMoreSetting.%AM0$build()" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8signature
+    Node8extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node10 [label="View"]
+    Node3 -> Node10
+    Node10attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10attributes
+    Node10signature [shape=ellipse label="signature
+@page...rc/main/ets/components/ItemDescription.ets: ItemDescription" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10signature
+    Node10extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node12 [label="root"]
+    Node10 -> Node12
+    Node12extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node12 -> Node12extra
+    Node13 [label="Text"]
+    Node12 -> Node13
+    Node13val [shape=ellipse label="StateValues
+ description" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13val
+    Node13attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|fontFamily|lineHeight|width" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node13 -> Node13attributes
+    Node13extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14_0 [label="View" style=filled color="green"]
+    Node3 -> Node14_0
+    Node14_0attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14_0 -> Node14_0attributes
+    Node14_0signature [shape=ellipse label="signature
+@page...ttingitems/src/main/ets/components/ItemGroup.ets: ItemGroup" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14_0 -> Node14_0signature
+    Node14_0extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14_0 -> Node14_0extra
+    {rank="same"; Node14_0;Node4;}
+    Node14_0 -> Node4[style=dotted]
+    Node14 [label="Blank"]
+    Node3 -> Node14
+    Node14attributes [shape=ellipse label="property|Event
+create|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15_1 [label="View" style=filled color="green"]
+    Node3 -> Node15_1
+    Node15_1attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_1 -> Node15_1attributes
+    Node15_1signature [shape=ellipse label="signature
+@page...ttingitems/src/main/ets/components/ItemGroup.ets: ItemGroup" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_1 -> Node15_1signature
+    Node15_1extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15_1 -> Node15_1extra
+    {rank="same"; Node15_1;Node4;}
+    Node15_1 -> Node4[style=dotted]
+    Node15_2 [label="View" style=filled color="green"]
+    Node3 -> Node15_2
+    Node15_2attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_2 -> Node15_2attributes
+    Node15_2signature [shape=ellipse label="signature
+@page...rc/main/ets/components/ItemDescription.ets: ItemDescription" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_2 -> Node15_2signature
+    Node15_2extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15_2 -> Node15_2extra
+    {rank="same"; Node15_2;Node10;}
+    Node15_2 -> Node10[style=dotted]
+    Node15_3 [label="View" style=filled color="green"]
+    Node3 -> Node15_3
+    Node15_3attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_3 -> Node15_3attributes
+    Node15_3signature [shape=ellipse label="signature
+@page...ttingitems/src/main/ets/components/ItemGroup.ets: ItemGroup" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15_3 -> Node15_3signature
+    Node15_3extra [shape=ellipse label="extra\nxpath: root/NavDestination/Scroll/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15_3 -> Node15_3extra
+    {rank="same"; Node15_3;Node4;}
+    Node15_3 -> Node4[style=dotted]
+}

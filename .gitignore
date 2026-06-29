@@ -1,51 +1,30 @@
-# Claude Code config and instructions
-.claude/
-CLAUDE.md
-
-# Project download instructions
-Projects/下载要求
-
-# Node.js dependencies
-node_modules/
-
-# Development environment (not source code)
-DevEco6/
+# SDK / IDE / Emulator
 SDK6/
+DevEco6/
 Emulator6/
+
+# Dependencies
+node_modules/
 
 # Build outputs
 lib/
-**/out/
-out_static/
+build/
+.hvigor/
 *.hap
-*.hsp
 
-# Keep ArkAnalyzer analysis results (data, not build output)
-!ArkAnalyzer/output/
+# Static analysis bundle
+HapTest/static/test-demo/bundle.js
 
-# IDE
+# Test outputs
+out*/
+out_*/
+
+# IDE / OS
 .idea/
-*.iml
-
-# OS
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-haptest.log
-
-# Temp
-temp/
-*.tmp
-# Test output directories
-out/
-out_*/
-out_cov/
-out_enhanced_cov/
-results*.csv
-
-# Build artifacts in projects
-**/.hvigor/
-**/oh_modules/
-**/build/
+# Experiments temp
+Experiments/gen_docx.py

@@ -1,0 +1,782 @@
+digraph G {
+    graph [nodesep=0.1]
+    node [shape=box]
+    edge [arrowhead=vee]
+    Node0 [label="root"]
+    Node0extra [shape=ellipse label="extra\nxpath: root" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node0 -> Node0extra
+    Node1 [label="NavDestination"]
+    Node0 -> Node1
+    Node1attributes [shape=ellipse label="property|Event
+create|ignoreLayoutSafeArea|hideTitleBar" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node1 -> Node1attributes
+    Node1extra [shape=ellipse label="extra\nxpath: root/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node1 -> Node1extra
+    Node2 [label="View"]
+    Node1 -> Node2
+    Node2val [shape=ellipse label="StateValues
+ isShowPlay" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2val
+    Node2attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2attributes
+    Node2signature [shape=ellipse label="signature
+@audi...ets/components/PlayerInfoComponent.ets: PlayerInfoComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node2 -> Node2signature
+    Node2extra [shape=ellipse label="extra\nxpath: root/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node2 -> Node2extra
+    Node4 [label="root"]
+    Node2 -> Node4
+    Node4extra [shape=ellipse label="extra\nxpath: root/NavDestination" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node4 -> Node4extra
+    Node5 [label="Stack"]
+    Node4 -> Node5
+    Node5val [shape=ellipse label="StateValues
+ imageColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5val
+    Node5attributes [shape=ellipse label="property|Event
+create|height|width|backgroundColor" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node5 -> Node5attributes
+    Node5extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node5 -> Node5extra
+    Node6 [label="Image"]
+    Node5 -> Node6
+    Node6val [shape=ellipse label="StateValues
+ imageLabel" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6val
+    Node6attributes [shape=ellipse label="property|Event
+create|size|aspectRatio|objectFit|opacity" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node6 -> Node6attributes
+    Node6extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node6 -> Node6extra
+    Node7 [label="Row"]
+    Node5 -> Node7
+    Node7val [shape=ellipse label="StateValues
+ bottomHeight|topHeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7val
+    Node7attributes [shape=ellipse label="property|Event
+create|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node7 -> Node7attributes
+    Node7extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node7 -> Node7extra
+    Node8 [label="If"]
+    Node7 -> Node8
+    Node8val [shape=ellipse label="StateValues
+ isFoldFull" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8val
+    Node8attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node8 -> Node8attributes
+    Node8extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node8 -> Node8extra
+    Node9 [label="IfBranch"]
+    Node8 -> Node9
+    Node9attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node9 -> Node9attributes
+    Node9extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node9 -> Node9extra
+    Node10 [label="Column"]
+    Node9 -> Node10
+    Node10attributes [shape=ellipse label="property|Event
+create|layoutWeight|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node10 -> Node10attributes
+    Node10extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node10 -> Node10extra
+    Node11 [label="View"]
+    Node10 -> Node11
+    Node11attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11attributes
+    Node11signature [shape=ellipse label="signature
+@audi.../main/ets/components/TopAreaComponent.ets: TopAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node11 -> Node11signature
+    Node11extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node11 -> Node11extra
+    Node13 [label="root"]
+    Node11 -> Node13
+    Node13extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node13 -> Node13extra
+    Node14 [label="Row"]
+    Node13 -> Node14
+    Node14attributes [shape=ellipse label="property|Event
+create|height|width|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node14 -> Node14attributes
+    Node14extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node14 -> Node14extra
+    Node15 [label="View"]
+    Node14 -> Node15
+    Node15val [shape=ellipse label="StateValues
+ color|currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15val
+    Node15attributes [shape=ellipse label="property|Event
+create|width|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15attributes
+    Node15signature [shape=ellipse label="signature
+@etsSdk/api/@ohos.multimedia.avCastPicker.d.ets: AVCastPicker" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node15 -> Node15signature
+    Node15extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node15 -> Node15extra
+    Node17 [label="GridRow"]
+    Node10 -> Node17
+    Node17attributes [shape=ellipse label="property|Event
+create|layoutWeight|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node17 -> Node17attributes
+    Node17extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node17 -> Node17extra
+    Node18 [label="GridCol"]
+    Node17 -> Node18
+    Node18attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node18 -> Node18attributes
+    Node18extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node18 -> Node18extra
+    Node19 [label="View"]
+    Node18 -> Node19
+    Node19attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19attributes
+    Node19signature [shape=ellipse label="signature
+@audi...n/ets/components/MusicInfoComponent.ets: MusicInfoComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node19 -> Node19signature
+    Node19extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node19 -> Node19extra
+    Node21 [label="root"]
+    Node19 -> Node21
+    Node21extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node21 -> Node21extra
+    Node22 [label="GridRow"]
+    Node21 -> Node22
+    Node22attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node22 -> Node22attributes
+    Node22extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/GridRow" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node22 -> Node22extra
+    Node23 [label="GridCol"]
+    Node22 -> Node23
+    Node23attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node23 -> Node23attributes
+    Node23extra [shape=ellipse label="extra\nxpath... root/NavDestination/Stack/Row/Stack/Swiper/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node23 -> Node23extra
+    Node24 [label="Column"]
+    Node23 -> Node24
+    Node24attributes [shape=ellipse label="property|Event
+create|height|width|clip" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node24 -> Node24attributes
+    Node24extra [shape=ellipse label="extra\nxpath...avDestination/Stack/Row/Stack/Swiper/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node24 -> Node24extra
+    Node25 [label="Blank"]
+    Node24 -> Node25
+    Node25attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node25 -> Node25attributes
+    Node25extra [shape=ellipse label="extra\nxpath...ination/Stack/Row/Stack/Swiper/GridRow/GridCol/Column/Blank" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node25 -> Node25extra
+    Node26 [label="View"]
+    Node24 -> Node26
+    Node26attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node26 -> Node26attributes
+    Node26signature [shape=ellipse label="signature
+@audi...s/components/ControlAreaComponent.ets: ControlAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node26 -> Node26signature
+    Node26extra [shape=ellipse label="extra\nxpath...avDestination/Stack/Row/Stack/Swiper/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node26 -> Node26extra
+    Node28 [label="root"]
+    Node26 -> Node28
+    Node28extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node28 -> Node28extra
+    Node29 [label="Column"]
+    Node28 -> Node29
+    Node29attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node29 -> Node29attributes
+    Node29extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node29 -> Node29extra
+    Node30 [label="Row"]
+    Node29 -> Node30
+    Node30attributes [shape=ellipse label="property|Event
+create|width|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node30 -> Node30attributes
+    Node30extra [shape=ellipse label="extra\nxpath...oot/NavDestination/Stack/Row/Stack/Swiper/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node30 -> Node30extra
+    Node31 [label="Image"]
+    Node30 -> Node31
+    Node31val [shape=ellipse label="StateValues
+ currentBreakpoint|playModeIndex|playMode" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node31 -> Node31val
+    Node31attributes [shape=ellipse label="property|Event
+create|fillColor|controlImageBuilder|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node31 -> Node31attributes
+    Node31extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node31 -> Node31extra
+    Node32 [label="Image"]
+    Node30 -> Node32
+    Node32val [shape=ellipse label="StateValues
+ currentBreakpoint|isShowPlayList|songList|isPlay|selectIndex" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node32 -> Node32val
+    Node32attributes [shape=ellipse label="property|Event
+create|fillColor|controlImageBuilder|width|onClick|bindSheet" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node32 -> Node32attributes
+    Node32extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node32 -> Node32extra
+    Node33 [label="Image"]
+    Node30 -> Node33
+    Node33val [shape=ellipse label="StateValues
+ currentBreakpoint|isSilentMode" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node33 -> Node33val
+    Node33attributes [shape=ellipse label="property|Event
+create|controlImageBuilder|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node33 -> Node33attributes
+    Node33extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node33 -> Node33extra
+    Node34 [label="Image"]
+    Node30 -> Node34
+    Node34val [shape=ellipse label="StateValues
+ currentBreakpoint|selectIndex|isFavorite" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node34 -> Node34val
+    Node34attributes [shape=ellipse label="property|Event
+create|fillColor|controlImageBuilder|animation|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node34 -> Node34attributes
+    Node34extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node34 -> Node34extra
+    Node35 [label="Column"]
+    Node29 -> Node35
+    Node35attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node35 -> Node35attributes
+    Node35extra [shape=ellipse label="extra\nxpath.../NavDestination/Stack/Row/Stack/Swiper/Column/Column/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node35 -> Node35extra
+    Node36 [label="Slider"]
+    Node35 -> Node36
+    Node36val [shape=ellipse label="StateValues
+ max|value|pageShowTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node36 -> Node36val
+    Node36attributes [shape=ellipse label="property|Event
+creat...ctedColor|trackColor|onChange|height|margin|hitTestBehavior" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node36 -> Node36attributes
+    Node36extra [shape=ellipse label="extra\nxpath...tination/Stack/Row/Stack/Swiper/Column/Column/Column/Slider" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node36 -> Node36extra
+    Node37 [label="Row"]
+    Node35 -> Node37
+    Node37attributes [shape=ellipse label="property|Event
+create|width|justifyContent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node37 -> Node37attributes
+    Node37extra [shape=ellipse label="extra\nxpath...Destination/Stack/Row/Stack/Swiper/Column/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node37 -> Node37extra
+    Node38 [label="Text"]
+    Node37 -> Node38
+    Node38val [shape=ellipse label="StateValues
+ currentTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node38 -> Node38val
+    Node38attributes [shape=ellipse label="property|Event
+create|fontColor|fontSize|fontFamily|lineHeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node38 -> Node38attributes
+    Node38extra [shape=ellipse label="extra\nxpath...nation/Stack/Row/Stack/Swiper/Column/Column/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node38 -> Node38extra
+    Node39 [label="Text"]
+    Node37 -> Node39
+    Node39val [shape=ellipse label="StateValues
+ totalTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node39 -> Node39val
+    Node39attributes [shape=ellipse label="property|Event
+create|fontColor|fontSize|fontFamily|lineHeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node39 -> Node39attributes
+    Node39extra [shape=ellipse label="extra\nxpath...nation/Stack/Row/Stack/Swiper/Column/Column/Column/Row/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node39 -> Node39extra
+    Node40 [label="Row"]
+    Node29 -> Node40
+    Node40attributes [shape=ellipse label="property|Event
+create|width|justifyContent|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node40 -> Node40attributes
+    Node40extra [shape=ellipse label="extra\nxpath...oot/NavDestination/Stack/Row/Stack/Swiper/Column/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node40 -> Node40extra
+    Node41 [label="Image"]
+    Node40 -> Node41
+    Node41val [shape=ellipse label="StateValues
+ songList|playMode|pageShowTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node41 -> Node41val
+    Node41attributes [shape=ellipse label="property|Event
+create|controlImageBuilder|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node41 -> Node41attributes
+    Node41extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node41 -> Node41extra
+    Node42 [label="Image"]
+    Node40 -> Node42
+    Node42val [shape=ellipse label="StateValues
+ currentBreakpoint|isPlay|songList|pageShowTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node42 -> Node42val
+    Node42attributes [shape=ellipse label="property|Event
+create|controlImageBuilder|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node42 -> Node42attributes
+    Node42extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node42 -> Node42extra
+    Node43 [label="Image"]
+    Node40 -> Node43
+    Node43val [shape=ellipse label="StateValues
+ songList|playMode|pageShowTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node43 -> Node43val
+    Node43attributes [shape=ellipse label="property|Event
+create|controlImageBuilder|width|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node43 -> Node43attributes
+    Node43extra [shape=ellipse label="extra\nxpath...vDestination/Stack/Row/Stack/Swiper/Column/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node43 -> Node43extra
+    Node44 [label="GridCol"]
+    Node17 -> Node44
+    Node44attributes [shape=ellipse label="property|Event
+create|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node44 -> Node44attributes
+    Node44extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node44 -> Node44extra
+    Node45 [label="View"]
+    Node44 -> Node45
+    Node45val [shape=ellipse label="StateValues
+ isShowControlLg|isTabletFalse" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node45 -> Node45val
+    Node45attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node45 -> Node45attributes
+    Node45signature [shape=ellipse label="signature
+@audi...rc/main/ets/components/LyricsComponent.ets: LyricsComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node45 -> Node45signature
+    Node45extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node45 -> Node45extra
+    Node47 [label="root"]
+    Node45 -> Node47
+    Node47extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node47 -> Node47extra
+    Node48 [label="Column"]
+    Node47 -> Node48
+    Node48val [shape=ellipse label="StateValues
+ pageShowTime" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node48 -> Node48val
+    Node48attributes [shape=ellipse label="property|Event
+create|onClick" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node48 -> Node48attributes
+    Node48extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node48 -> Node48extra
+    Node49 [label="If"]
+    Node48 -> Node49
+    Node49val [shape=ellipse label="StateValues
+ currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node49 -> Node49val
+    Node49attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node49 -> Node49attributes
+    Node49extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node49 -> Node49extra
+    Node50 [label="IfBranch"]
+    Node49 -> Node50
+    Node50attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node50 -> Node50attributes
+    Node50extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node50 -> Node50extra
+    Node51 [label="Row"]
+    Node50 -> Node51
+    Node51attributes [shape=ellipse label="property|Event
+create|width|justifyContent|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node51 -> Node51attributes
+    Node51extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node51 -> Node51extra
+    Node52 [label="If"]
+    Node51 -> Node52
+    Node52val [shape=ellipse label="StateValues
+ isTablet" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node52 -> Node52val
+    Node52attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node52 -> Node52attributes
+    Node52extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node52 -> Node52extra
+    Node53 [label="IfBranch"]
+    Node52 -> Node53
+    Node53attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node53 -> Node53attributes
+    Node53extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node53 -> Node53extra
+    Node54 [label="Image"]
+    Node53 -> Node54
+    Node54val [shape=ellipse label="StateValues
+ songList|selectIndex" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node54 -> Node54val
+    Node54attributes [shape=ellipse label="property|Event
+create|width|borderRadius|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node54 -> Node54attributes
+    Node54extra [shape=ellipse label="extra\nxpath...root/NavDestination/Stack/Row/Stack/Swiper/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node54 -> Node54extra
+    Node55 [label="Column"]
+    Node51 -> Node55
+    Node55attributes [shape=ellipse label="property|Event
+create|alignItems" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node55 -> Node55attributes
+    Node55extra [shape=ellipse label="extra\nxpath...oot/NavDestination/Stack/Row/Stack/Swiper/Column/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node55 -> Node55extra
+    Node56 [label="Text"]
+    Node55 -> Node56
+    Node56val [shape=ellipse label="StateValues
+ songList|selectIndex|currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node56 -> Node56val
+    Node56attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|fontFamily" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node56 -> Node56attributes
+    Node56extra [shape=ellipse label="extra\nxpath...avDestination/Stack/Row/Stack/Swiper/Column/Row/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node56 -> Node56extra
+    Node57 [label="Text"]
+    Node55 -> Node57
+    Node57val [shape=ellipse label="StateValues
+ songList|selectIndex|currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node57 -> Node57val
+    Node57attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|fontFamily|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node57 -> Node57attributes
+    Node57extra [shape=ellipse label="extra\nxpath...avDestination/Stack/Row/Stack/Swiper/Column/Row/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node57 -> Node57extra
+    Node58 [label="If"]
+    Node48 -> Node58
+    Node58val [shape=ellipse label="StateValues
+ currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node58 -> Node58val
+    Node58attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node58 -> Node58attributes
+    Node58extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node58 -> Node58extra
+    Node59 [label="IfBranch"]
+    Node58 -> Node59
+    Node59attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node59 -> Node59attributes
+    Node59extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node59 -> Node59extra
+    Node60 [label="Row"]
+    Node59 -> Node60
+    Node60attributes [shape=ellipse label="property|Event
+create|layoutWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node60 -> Node60attributes
+    Node60extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node60 -> Node60extra
+    Node61 [label="GridRow"]
+    Node60 -> Node61
+    Node61attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node61 -> Node61attributes
+    Node61extra [shape=ellipse label="extra\nxpath...ot/NavDestination/Stack/Row/Stack/Swiper/Column/Row/GridRow" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node61 -> Node61extra
+    Node62 [label="GridCol"]
+    Node61 -> Node62
+    Node62attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node62 -> Node62attributes
+    Node62extra [shape=ellipse label="extra\nxpath...stination/Stack/Row/Stack/Swiper/Column/Row/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node62 -> Node62extra
+    Node63 [label="Column"]
+    Node62 -> Node63
+    Node63attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node63 -> Node63attributes
+    Node63extra [shape=ellipse label="extra\nxpath...on/Stack/Row/Stack/Swiper/Column/Row/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node63 -> Node63extra
+    Node64 [label="Row"]
+    Node63 -> Node64
+    Node64attributes [shape=ellipse label="property|Event
+create|width|justifyContent|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node64 -> Node64attributes
+    Node64extra [shape=ellipse label="extra\nxpath...tack/Row/Stack/Swiper/Column/Row/GridRow/GridCol/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node64 -> Node64extra
+    Node65 [label="Column"]
+    Node64 -> Node65
+    Node65attributes [shape=ellipse label="property|Event
+create|alignItems" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node65 -> Node65attributes
+    Node65extra [shape=ellipse label="extra\nxpath...w/Stack/Swiper/Column/Row/GridRow/GridCol/Column/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node65 -> Node65extra
+    Node66 [label="Text"]
+    Node65 -> Node66
+    Node66val [shape=ellipse label="StateValues
+ songList|selectIndex|currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node66 -> Node66val
+    Node66attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontWeight|fontFamily" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node66 -> Node66attributes
+    Node66extra [shape=ellipse label="extra\nxpath...ck/Swiper/Column/Row/GridRow/GridCol/Column/Row/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node66 -> Node66extra
+    Node67 [label="Text"]
+    Node65 -> Node67
+    Node67val [shape=ellipse label="StateValues
+ songList|selectIndex|currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node67 -> Node67val
+    Node67attributes [shape=ellipse label="property|Event
+create|fontSize|fontColor|fontFamily|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node67 -> Node67attributes
+    Node67extra [shape=ellipse label="extra\nxpath...ck/Swiper/Column/Row/GridRow/GridCol/Column/Row/Column/Text" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node67 -> Node67extra
+    Node68 [label="View"]
+    Node63 -> Node68
+    Node68val [shape=ellipse label="StateValues
+ time|mLrcEntryList|lyricScrollEffect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node68 -> Node68val
+    Node68attributes [shape=ellipse label="property|Event
+create|layoutWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node68 -> Node68attributes
+    Node68signature [shape=ellipse label="signature
+@audi...nteraction/entry/src/main/ets/lyric/LrcView.ets: shiLrcView" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node68 -> Node68signature
+    Node68extra [shape=ellipse label="extra\nxpath...on/Stack/Row/Stack/Swiper/Column/Row/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node68 -> Node68extra
+    Node70 [label="root"]
+    Node68 -> Node70
+    Node70extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node70 -> Node70extra
+    Node71 [label="Canvas"]
+    Node70 -> Node71
+    Node71val [shape=ellipse label="StateValues
+ lyricMilliSecondsTime|mLrcEntryList|lyricScrollEffect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node71 -> Node71val
+    Node71attributes [shape=ellipse label="property|Event
+create|onAreaChange" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node71 -> Node71attributes
+    Node71extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Canvas" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node71 -> Node71extra
+    Node72 [label="IfBranch"]
+    Node58 -> Node72
+    Node72attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node72 -> Node72attributes
+    Node72extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node72 -> Node72extra
+    Node73_0 [label="View" style=filled color="green"]
+    Node72 -> Node73_0
+    Node73_0val [shape=ellipse label="StateValues
+ time|mLrcEntryList|lyricScrollEffect" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node73_0 -> Node73_0val
+    Node73_0attributes [shape=ellipse label="property|Event
+create|layoutWeight" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node73_0 -> Node73_0attributes
+    Node73_0signature [shape=ellipse label="signature
+@audi...nteraction/entry/src/main/ets/lyric/LrcView.ets: shiLrcView" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node73_0 -> Node73_0signature
+    Node73_0extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node73_0 -> Node73_0extra
+    {rank="same"; Node73_0;Node68;}
+    Node73_0 -> Node68[style=dotted]
+    Node73 [label="Row"]
+    Node48 -> Node73
+    Node73attributes [shape=ellipse label="property|Event
+create|width|height|justifyContent|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node73 -> Node73attributes
+    Node73extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node73 -> Node73extra
+    Node74 [label="Image"]
+    Node73 -> Node74
+    Node74val [shape=ellipse label="StateValues
+ currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node74 -> Node74val
+    Node74attributes [shape=ellipse label="property|Event
+create|width|aspectRatio|opacity" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node74 -> Node74attributes
+    Node74extra [shape=ellipse label="extra\nxpath...root/NavDestination/Stack/Row/Stack/Swiper/Column/Row/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node74 -> Node74extra
+    Node75 [label="If"]
+    Node48 -> Node75
+    Node75val [shape=ellipse label="StateValues
+ isShowControl" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node75 -> Node75val
+    Node75attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node75 -> Node75attributes
+    Node75extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node75 -> Node75extra
+    Node76 [label="IfBranch"]
+    Node75 -> Node76
+    Node76attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node76 -> Node76attributes
+    Node76extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node76 -> Node76extra
+    Node77_1 [label="View" style=filled color="green"]
+    Node76 -> Node77_1
+    Node77_1attributes [shape=ellipse label="property|Event
+create|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node77_1 -> Node77_1attributes
+    Node77_1signature [shape=ellipse label="signature
+@audi...s/components/ControlAreaComponent.ets: ControlAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node77_1 -> Node77_1signature
+    Node77_1extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node77_1 -> Node77_1extra
+    {rank="same"; Node77_1;Node26;}
+    Node77_1 -> Node26[style=dotted]
+    Node77 [label="IfBranch"]
+    Node8 -> Node77
+    Node77attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node77 -> Node77attributes
+    Node77extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node77 -> Node77extra
+    Node78 [label="If"]
+    Node77 -> Node78
+    Node78val [shape=ellipse label="StateValues
+ currentBreakpoint" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node78 -> Node78val
+    Node78attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node78 -> Node78attributes
+    Node78extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node78 -> Node78extra
+    Node79 [label="IfBranch"]
+    Node78 -> Node79
+    Node79attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node79 -> Node79attributes
+    Node79extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node79 -> Node79extra
+    Node80 [label="Column"]
+    Node79 -> Node80
+    Node80attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node80 -> Node80attributes
+    Node80extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node80 -> Node80extra
+    Node81_2 [label="View" style=filled color="green"]
+    Node80 -> Node81_2
+    Node81_2attributes [shape=ellipse label="property|Event
+create|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node81_2 -> Node81_2attributes
+    Node81_2signature [shape=ellipse label="signature
+@audi.../main/ets/components/TopAreaComponent.ets: TopAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node81_2 -> Node81_2signature
+    Node81_2extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node81_2 -> Node81_2extra
+    {rank="same"; Node81_2;Node11;}
+    Node81_2 -> Node11[style=dotted]
+    Node81 [label="GridRow"]
+    Node80 -> Node81
+    Node81attributes [shape=ellipse label="property|Event
+create|layoutWeight|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node81 -> Node81attributes
+    Node81extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node81 -> Node81extra
+    Node82 [label="GridCol"]
+    Node81 -> Node82
+    Node82attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node82 -> Node82attributes
+    Node82extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node82 -> Node82extra
+    Node83 [label="Column"]
+    Node82 -> Node83
+    Node83attributes [shape=ellipse label="property|Event
+create|height|justifyContent|margin" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node83 -> Node83attributes
+    Node83extra [shape=ellipse label="extra\nxpath...root/NavDestination/Stack/Row/Column/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node83 -> Node83extra
+    Node84 [label="Image"]
+    Node83 -> Node84
+    Node84val [shape=ellipse label="StateValues
+ songList|selectIndex" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node84 -> Node84val
+    Node84attributes [shape=ellipse label="property|Event
+create|width|aspectRatio|borderRadius" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node84 -> Node84attributes
+    Node84extra [shape=ellipse label="extra\nxpath...avDestination/Stack/Row/Column/GridRow/GridCol/Column/Image" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node84 -> Node84extra
+    Node85_3 [label="View" style=filled color="green"]
+    Node83 -> Node85_3
+    Node85_3attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node85_3 -> Node85_3attributes
+    Node85_3signature [shape=ellipse label="signature
+@audi...s/components/ControlAreaComponent.ets: ControlAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node85_3 -> Node85_3signature
+    Node85_3extra [shape=ellipse label="extra\nxpath...root/NavDestination/Stack/Row/Column/GridRow/GridCol/Column" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node85_3 -> Node85_3extra
+    {rank="same"; Node85_3;Node26;}
+    Node85_3 -> Node26[style=dotted]
+    Node85 [label="GridCol"]
+    Node81 -> Node85
+    Node85attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node85 -> Node85attributes
+    Node85extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node85 -> Node85extra
+    Node86_4 [label="View" style=filled color="green"]
+    Node85 -> Node86_4
+    Node86_4val [shape=ellipse label="StateValues
+ isShowControlLg|isTablet" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node86_4 -> Node86_4val
+    Node86_4attributes [shape=ellipse label="property|Event
+create" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node86_4 -> Node86_4attributes
+    Node86_4signature [shape=ellipse label="signature
+@audi...rc/main/ets/components/LyricsComponent.ets: LyricsComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node86_4 -> Node86_4signature
+    Node86_4extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Column/GridRow/GridCol" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node86_4 -> Node86_4extra
+    {rank="same"; Node86_4;Node45;}
+    Node86_4 -> Node45[style=dotted]
+    Node86 [label="IfBranch"]
+    Node78 -> Node86
+    Node86attributes [shape=ellipse label="property|Event
+branch" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node86 -> Node86attributes
+    Node86extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node86 -> Node86extra
+    Node87 [label="Stack"]
+    Node86 -> Node87
+    Node87attributes [shape=ellipse label="property|Event
+create|height" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node87 -> Node87attributes
+    Node87extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node87 -> Node87extra
+    Node88 [label="Swiper"]
+    Node87 -> Node88
+    Node88val [shape=ellipse label="StateValues
+ isShowControl|pageShowTime|intervalID" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node88 -> Node88val
+    Node88attributes [shape=ellipse label="property|Event
+create|height|indicator|clip|loop|onChange" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node88 -> Node88attributes
+    Node88extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node88 -> Node88extra
+    Node89_5 [label="View" style=filled color="green"]
+    Node88 -> Node89_5
+    Node89_5attributes [shape=ellipse label="property|Event
+create|margin|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_5 -> Node89_5attributes
+    Node89_5signature [shape=ellipse label="signature
+@audi...n/ets/components/MusicInfoComponent.ets: MusicInfoComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_5 -> Node89_5signature
+    Node89_5extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node89_5 -> Node89_5extra
+    {rank="same"; Node89_5;Node19;}
+    Node89_5 -> Node19[style=dotted]
+    Node89_6 [label="View" style=filled color="green"]
+    Node88 -> Node89_6
+    Node89_6val [shape=ellipse label="StateValues
+ isShowControl|isTabletFalse" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_6 -> Node89_6val
+    Node89_6attributes [shape=ellipse label="property|Event
+create|margin|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_6 -> Node89_6attributes
+    Node89_6signature [shape=ellipse label="signature
+@audi...rc/main/ets/components/LyricsComponent.ets: LyricsComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_6 -> Node89_6signature
+    Node89_6extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack/Swiper" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node89_6 -> Node89_6extra
+    {rank="same"; Node89_6;Node45;}
+    Node89_6 -> Node45[style=dotted]
+    Node89_7 [label="View" style=filled color="green"]
+    Node87 -> Node89_7
+    Node89_7attributes [shape=ellipse label="property|Event
+create|padding" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_7 -> Node89_7attributes
+    Node89_7signature [shape=ellipse label="signature
+@audi.../main/ets/components/TopAreaComponent.ets: TopAreaComponent" fontsize=10 height=.1 style=filled color=".7 .3 1.0" ]
+    Node89_7 -> Node89_7signature
+    Node89_7extra [shape=ellipse label="extra\nxpath: root/NavDestination/Stack/Row/Stack" fontsize=10 height=.1 style=filled color=".7 .3 1.0"]
+    Node89_7 -> Node89_7extra
+    {rank="same"; Node89_7;Node11;}
+    Node89_7 -> Node11[style=dotted]
+}

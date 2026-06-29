@@ -1,0 +1,96 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "爆笑虫子"
+    },
+    {
+      "name": "video_warn",
+      "value": "退出程序，请检查网络是否连接或可用！"
+    },
+    {
+      "name": "video_speed_1_0X",
+      "value": "1.0X"
+    },
+    {
+      "name": "video_speed_1_25X",
+      "value": "1.25X"
+    },
+    {
+      "name": "video_speed_1_75X",
+      "value": "1.75X"
+    },
+    {
+      "name": "video_res_1",
+      "value": "第一集 吃西瓜"
+    },
+    {
+      "name": "video_res_2",
+      "value": "第二集 蚂蚁"
+    },
+    {
+      "name": "video_res_3",
+      "value": "第三集 洞穴"
+    },
+    {
+      "name": "video_res_4",
+      "value": "第四集 失踪"
+    },
+    {
+      "name": "video_res_5",
+      "value": "第五集 吃布丁"
+    },
+    {
+      "name": "video_speed_2_0X",
+      "value": "2.0X"
+    },
+    {
+      "name": "dialog_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "dialog_play_speed",
+      "value": "播放倍速"
+    },
+    {
+      "name": "playing",
+      "value": "当前播放"
+    },
+    {
+      "name": "default_track",
+      "value": "默认轨道"
+    },
+    {
+      "name": "track_name",
+      "value": "轨道:"
+    },
+    {
+      "name": "track_name_1",
+      "value": "轨道:1"
+    },
+    {
+      "name": "thumbnail_page",
+      "value": "进入获取缩略图页面"
+    },
+    {
+      "name": "get_thumbnail",
+      "value": "获取缩略图(test.mp4)"
+    },
+    {
+      "name": "subtitle_on",
+      "value": "开"
+    },
+    {
+      "name": "subtitle_off",
+      "value": "关"
+    }
+  ]
+}

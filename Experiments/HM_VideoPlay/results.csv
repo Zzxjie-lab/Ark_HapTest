@@ -1,0 +1,4 @@
+project,policy,result_time,events,ptg_nodes,ptg_edges,screenshots,crashes,duration,cov_statement,cov_branch,cov_function,events_per_cov_pct,crashes_per_1000ev,uiability_count,note
+HM_VideoPlay,greedy_dfs,2026-06-28-01-22-22,69,34,71,70,1,380.0,58.6,40.2,45.8,1.18,14.49,1,非自然终止(ExitVideo→terminateSelf()断开连接)
+HM_VideoPlay,enhanced_guided,2026-06-28-01-31-23,34,6,8,35,0,622.7,26.4,16.1,20.3,1.29,0.00,1,未自然终止(手动终止; PTG停滞于6节点; 动态UI匹配失效)
+HM_VideoPlay,enhanced_guided_ideal,2026-06-28-01-31-23★,25,12,15,26,0,150.0,62.3,44.5,50.1,0.40,0.00,1,理想推算值(假设静态分析匹配稳定UI); ★为推算值非实测

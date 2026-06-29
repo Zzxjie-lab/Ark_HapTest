@@ -252,4 +252,22 @@ export class EventBuilder {
         }
         return undefined;
     }
+
+    /** 纯运行时能力兜底 — 静态清单不完整时，直接根据组件运行时能力生成事件 */
+    static createEventFromRuntimeComponent(comp: Component): UIEvent | undefined {
+        if (comp.scrollable) {
+            return new ScrollEvent(comp, Direct.DOWN);
+        }
+        if (comp.inputable) {
+            const text = "test_input_" + RandomUtils.genRandomString(4);
+            return new InputTextEvent(comp, text);
+        }
+        if (comp.longClickable) {
+            return new LongTouchEvent(comp);
+        }
+        if (comp.clickable || comp.checkable) {
+            return new TouchEvent(comp.getCenterPoint());
+        }
+        return undefined;
+    }
 }
