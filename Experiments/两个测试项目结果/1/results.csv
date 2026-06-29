@@ -1,3 +1,0 @@
-project,policy,result_time,events,ptg_nodes,ptg_edges,screenshots,crashes,duration,cov_statement,cov_branch,cov_function,events_per_cov_pct,crashes_per_1000ev,uiability_count
-audio-interaction,greedy_dfs,2026-06-03-23-54-22,234,8,21,235,1,2769.6,48.6,33.6,31.1,4.81,4.27,2
-audio-interaction,enhanced_guided,2026-06-04-00-39-50,58,6,16,59,30,1700.6,73.6,60.3,50.4,0.79,517.24,1

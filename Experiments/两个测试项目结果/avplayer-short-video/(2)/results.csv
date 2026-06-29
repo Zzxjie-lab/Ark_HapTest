@@ -1,4 +1,0 @@
-project,policy,result_time,events,ptg_nodes,ptg_edges,screenshots,crashes,duration,cov_statement,cov_branch,cov_function,events_per_cov_pct,crashes_per_1000ev,uiability_count,note
-avplayer-short-video,greedy_dfs,2026-06-27-16-30-34,1215,22,82,1216,3,8783.1,56.8,41.3,46.2,21.4,2.47,2,自然终止(旧版基线)
-avplayer-short-video,enhanced_guided_old,2026-06-27-18-59-44,571,7,16,572,5,288.0,72.5,57.8,59.1,7.9,8.76,1,未自然终止(旧版; Swiper无限循环)
-avplayer-short-video,enhanced_guided_v2,2026-06-28-09-21-57,87,82,83,88,0,2879.6,72.5,57.8,59.1,1.2,0.00,1,手动终止(48min); 未自然终止但效率94%; 停滞重置5+次
